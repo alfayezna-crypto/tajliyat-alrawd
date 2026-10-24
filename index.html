@@ -1,0 +1,1208 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></head><body><title>نماذج تجلية الروض</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap">
+<style>
+  /* layout: tabbed workbench — illustration on one side, text of al-Rawd beside it */
+  :root{
+    --ink:#1d2b4f; --ink2:#4a5677; --gold:#b8903a; --paper:#fbf8f1; --card:#ffffff; --line:#e4dccb; --soft:#f6f1e4;
+    --vhead:#fcfaf4; --fact:#f4f2ec; --btn:#ffffff; --sel:#1d2b4f; --quoteb:#8a5a12; --onsel:#ffffff;
+    --ui:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif; --text:"Amiri","Traditional Arabic","Sakkal Majalla",serif;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+    --ink:#e6e9f2; --ink2:#a9b2c6; --gold:#c9a24f; --paper:#15171d; --card:#1d2029; --line:#343846; --soft:#262a35;
+    --vhead:#22252f; --fact:#262a35; --btn:#262a35; --sel:#3b5aa8; --quoteb:#e2b764; color-scheme:dark } }
+  :root[data-theme="dark"]{
+    --ink:#e6e9f2; --ink2:#a9b2c6; --gold:#c9a24f; --paper:#15171d; --card:#1d2029; --line:#343846; --soft:#262a35;
+    --vhead:#22252f; --fact:#262a35; --btn:#262a35; --sel:#3b5aa8; --quoteb:#e2b764; color-scheme:dark }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui)}
+  .app{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+  header{max-width:1180px;margin:auto;padding-block:18px 0}
+  header h1{margin:0;font-size:24px}
+  header p{margin:4px 0 12px;color:var(--ink2);font-size:14px}
+  nav{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line)}
+  nav button{font:inherit;font-size:15px;border:0;background:none;color:var(--ink2);padding:10px 14px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+  nav button .k{display:inline-block;font-size:11px;background:var(--line);color:var(--ink2);border-radius:10px;padding:1px 8px;margin-left:6px}
+  nav button.on{color:var(--ink);font-weight:700;border-bottom-color:var(--gold)}
+  nav button.on .k{background:var(--gold);color:var(--onsel)}
+  main{max-width:1180px;margin:auto;padding-block:14px 28px}
+  .tab{display:none}
+  .tab.on{display:block}
+  .grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .vis canvas,.vis svg{display:block;width:100%;height:auto}
+  .vhead{padding:10px 14px;font-weight:700;font-size:15px;border-bottom:1px solid var(--line);background:var(--vhead)}
+  .ctrls{padding:10px 14px;display:grid;gap:10px;border-top:1px solid var(--line)}
+  .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .row label{font-size:13px;color:var(--ink2);min-width:70px}
+  input[type=range]{flex:1 1 220px;accent-color:var(--gold)}
+  button.b,select{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--btn);color:var(--ink);cursor:pointer}
+  button.b.on{background:var(--sel);color:var(--onsel);border-color:var(--sel)}
+  button.b.primary{background:var(--gold);border-color:var(--gold);color:var(--onsel)}
+  .seg{display:flex;flex-wrap:wrap;gap:6px}
+  .side{padding:16px;display:flex;flex-direction:column;gap:12px}
+  .state{border-radius:10px;padding:12px 14px;color:var(--onsel);background:var(--sel)}
+  .state .k{font-size:13px;opacity:.85}
+  .state .v{font-size:22px;font-weight:700;margin-top:2px}
+  .quote{font-family:var(--text);font-size:21px;line-height:1.75;background:var(--soft);border-right:4px solid var(--gold);padding:10px 14px;border-radius:6px}
+  .quote b{color:var(--quoteb)}
+  .cite{font-size:12px;color:var(--ink2);margin-top:-6px}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .fact{background:var(--fact);border-radius:8px;padding:8px 10px}
+  .fact .k{font-size:12px;color:var(--ink2)} .fact .v{font-size:16px;font-weight:700}
+  .note{font-size:12px;color:var(--ink2);line-height:1.7}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--ink2)}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-left:5px}
+  iframe#prayerFrame{width:100%;border:0;display:block;min-height:760px}
+  .hint{font-size:12px;color:var(--ink2);padding:6px 14px 10px}
+  .grid > *{min-width:0}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+</style>
+<div class="app" dir="rtl" lang="ar">
+<header>
+  <h1>تجلية الروض: النماذج التفاعلية</h1>
+  <p>خمسة أمثلة من ربع العبادات في «الروض المربع»، لكل مثال نموذج يناسب نوعه. الإحالات إلى طبعة ركائز كما في المكتبة الشاملة.</p>
+  <nav id="tabs">
+    <button data-tab="prayer"><span class="k">زمان</span>أوقات الصلاة</button>
+    <button data-tab="qulla"><span class="k">مقدار</span>القلّتان</button>
+    <button data-tab="dulab"><span class="k">آلة</span>الدولاب والنواضح</button>
+    <button data-tab="pose"><span class="k">هيئة</span>الافتراش والتورّك</button>
+    <button data-tab="miqat"><span class="k">مكان</span>المواقيت</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ================= ١ أوقات الصلاة ================= -->
+<section class="tab" id="tab-prayer">
+  <div class="card"><iframe id="prayerFrame" title="أوقات الصلاة" srcdoc="<!doctype html>
+<html lang=&quot;ar&quot; dir=&quot;rtl&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+<title>أوقات الصلاة بالظل</title>
+<style>
+  :root{
+    --ink:#1d2b4f; --ink2:#4a5677; --gold:#b8903a; --paper:#fbf8f1; --card:#ffffff; --line:#e4dccb;
+    --zuhr:#e3b448; --asr:#d9822b; --asr2:#b4532a; --magh:#c2410c; --isha:#3b4a8a; --isha2:#26305e; --fajr:#5b7fc7; --none:#d8d2c4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:&quot;Segoe UI&quot;,Tahoma,sans-serif}
+  header{padding:18px 20px 6px;max-width:1100px;margin:auto}
+  header h1{margin:0;font-size:22px}
+  header p{margin:4px 0 0;color:var(--ink2);font-size:14px}
+  main{max-width:1100px;margin:auto;padding:10px 16px 24px;display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
+  @media (max-width:860px){main{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  #scene{display:block;width:100%;height:auto;background:#000}
+  .controls{padding:12px 14px;display:grid;gap:10px}
+  .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .row label{font-size:13px;color:var(--ink2);min-width:64px}
+  input[type=range]{flex:1;accent-color:var(--gold)}
+  select,button{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+  button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .clock{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;direction:ltr}
+  #timeline{width:100%;height:auto;display:block}
+  .side{padding:16px;display:flex;flex-direction:column;gap:12px}
+  .now{border-radius:10px;padding:12px 14px;color:#fff}
+  .now .k{font-size:13px;opacity:.85}
+  .now .v{font-size:22px;font-weight:700;margin-top:2px}
+  .quote{font-family:&quot;Traditional Arabic&quot;,&quot;Sakkal Majalla&quot;,serif;font-size:21px;line-height:1.75;background:#f6f1e4;border-right:4px solid var(--gold);padding:10px 14px;border-radius:6px}
+  .quote b{color:#8a5a12}
+  .cite{font-size:12px;color:var(--ink2)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .stat{background:#f4f2ec;border-radius:8px;padding:8px 10px}
+  .stat .k{font-size:12px;color:var(--ink2)} .stat .v{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--ink2)}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-left:4px}
+  .note{font-size:12px;color:var(--ink2);line-height:1.7}
+  /* colour bands for the day and city rows */
+  .band{border-radius:10px;padding:8px 10px;border-right:6px solid var(--bandc);background:var(--bandbg);transition:background .3s,border-color .3s}
+  .band label{color:var(--bandc);font-weight:700}
+  #dayRow{--bandc:#e8892b;--bandbg:#fdf1e3}
+  #cityRow{--bandc:#2a8c86;--bandbg:#e6f4f2}
+  #day{flex:1 1 260px;-webkit-appearance:none;appearance:none;height:12px;border-radius:6px;outline:none;
+    background:linear-gradient(to left,#3b6fb6 0%,#3b6fb6 18%,#4fa36b 26%,#4fa36b 43%,#e8892b 51%,#e8892b 69%,#a0673a 77%,#a0673a 93%,#3b6fb6 100%)}
+  #day::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--bandc);box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer}
+  #day::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--bandc);cursor:pointer}
+  .chip{display:inline-block;padding:2px 10px;border-radius:12px;color:#fff;font-size:13px;font-weight:700;background:var(--bandc)}
+  #city{border-color:#2a8c86}
+  .seasonBtn.on{color:#fff;font-weight:700}
+  #summer.on{background:#e8892b;border-color:#e8892b}
+  #winter.on{background:#3b6fb6;border-color:#3b6fb6}
+</style>
+</head>
+<body>
+<header>
+  <h1>أوقات الصلوات الخمس بحركة الظل</h1>
+  <p>نموذج تجريبي من مشروع «تجلية الروض»، يجسّد قول صاحب الروض: «اعلم أن الشمس إذا طلعت رُفِع لكل شاخص ظلٌّ طويل من جانب المغرب…»</p>
+</header>
+<main>
+  <section class=&quot;card&quot;>
+    <canvas id=&quot;scene&quot; width=&quot;1200&quot; height=&quot;640&quot;></canvas>
+    <div class=&quot;controls&quot;>
+      <div class=&quot;row&quot;>
+        <button class=&quot;primary&quot; id=&quot;play&quot;>▶ تشغيل</button>
+        <span class=&quot;clock&quot; id=&quot;clock&quot;>12:00</span>
+        <span class=&quot;note&quot;>بالتوقيت الشمسي المحلي</span>
+      </div>
+      <div class=&quot;row&quot;><label>الساعة</label><input type=&quot;range&quot; id=&quot;t&quot; min=&quot;0&quot; max=&quot;24&quot; step=&quot;0.01&quot; value=&quot;6.2&quot;></div>
+      <svg id=&quot;timeline&quot; viewBox=&quot;0 0 1000 96&quot;></svg>
+      <div class=&quot;row band&quot; id=&quot;dayRow&quot;>
+        <label>اليوم</label><input type=&quot;range&quot; id=&quot;day&quot; min=&quot;1&quot; max=&quot;365&quot; value=&quot;172&quot;>
+        <span id=&quot;dayLbl&quot; class=&quot;note&quot; style=&quot;min-width:80px&quot;></span><span class=&quot;chip&quot; id=&quot;seasonChip&quot;></span>
+        <button class=&quot;seasonBtn&quot; id=&quot;summer&quot;>الصيف</button><button class=&quot;seasonBtn&quot; id=&quot;winter&quot;>الشتاء</button>
+      </div>
+      <div class=&quot;row band&quot; id=&quot;cityRow&quot;>
+        <label>البلد</label>
+        <select id=&quot;city&quot;>
+          <option value=&quot;26.43&quot;>الدمام</option>
+          <option value=&quot;24.71&quot;>الرياض</option>
+          <option value=&quot;21.42&quot;>مكة المكرمة</option>
+          <option value=&quot;24.47&quot;>المدينة النبوية</option>
+          <option value=&quot;30.04&quot;>القاهرة (بلد البهوتي)</option>
+          <option value=&quot;33.51&quot;>دمشق</option>
+          <option value=&quot;41.01&quot;>إسطنبول</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <aside class=&quot;card side&quot;>
+    <div class=&quot;now&quot; id=&quot;now&quot;><div class=&quot;k&quot;>الوقت الآن</div><div class=&quot;v&quot; id=&quot;nowName&quot;>—</div></div>
+    <div class=&quot;quote&quot; id=&quot;quote&quot;></div>
+    <div class=&quot;cite&quot; id=&quot;cite&quot;></div>
+    <div class=&quot;stats&quot;>
+      <div class=&quot;stat&quot;><div class=&quot;k&quot;>طول الظل الآن</div><div class=&quot;v&quot; id=&quot;sLen&quot;>—</div></div>
+      <div class=&quot;stat&quot;><div class=&quot;k&quot;>فيء الزوال (ظل الاستواء)</div><div class=&quot;v&quot; id=&quot;s0&quot;>—</div></div>
+      <div class=&quot;stat&quot;><div class=&quot;k&quot;>أول العصر: الظل =</div><div class=&quot;v&quot; id=&quot;sAsr&quot;>—</div></div>
+      <div class=&quot;stat&quot;><div class=&quot;k&quot;>آخر المختار: الظل =</div><div class=&quot;v&quot; id=&quot;sAsr2&quot;>—</div></div>
+    </div>
+    <div class=&quot;legend&quot;>
+      <span><i style=&quot;background:var(--fajr)&quot;></i>الفجر</span>
+      <span><i style=&quot;background:var(--zuhr)&quot;></i>الظهر</span>
+      <span><i style=&quot;background:var(--asr)&quot;></i>العصر (المختار)</span>
+      <span><i style=&quot;background:var(--asr2)&quot;></i>العصر (الضرورة)</span>
+      <span><i style=&quot;background:var(--magh)&quot;></i>المغرب</span>
+      <span><i style=&quot;background:var(--isha)&quot;></i>العشاء (المختار)</span>
+      <span><i style=&quot;background:var(--isha2)&quot;></i>العشاء (الضرورة)</span>
+    </div>
+    <p class=&quot;note&quot;>الأطوال بوحدة «طول الشاخص». الدوائر على الأرض: الداخلية قدر فيء الزوال، والوسطى فيء الزوال ومثل الشاخص (أول العصر)، والخارجية فيء الزوال ومثلا الشاخص (آخر وقت العصر المختار). مغيب الشفق الأحمر وطلوع الفجر الثاني مُثِّلا بزاويتين تقريبيتين للتوضيح فقط (١٧° و١٨° تحت الأفق)، وتُضبطان في الإنتاج بمراجعة أهل الاختصاص الفلكي. النموذج للتعليم وليس تقويمًا للصلاة.</p>
+  </aside>
+</main>
+
+<script>
+const R = Math.PI/180;
+const $ = id => document.getElementById(id);
+const cv = $('scene'), cx = cv.getContext('2d');
+const W = cv.width, H = cv.height;
+
+const AR_DIG = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+const fmt = h => { h = ((h % 24) + 24) % 24; let m = Math.round(h*60); const hh = Math.floor(m/60)%24, mm = m%60; return AR_DIG(String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0')); };
+const num = x => AR_DIG(x.toFixed(2));
+
+const TXT = {
+  fajr:  {name:'وقت الفجر', color:'#5b7fc7', q:'(وَيَلِيهِ <b>وَقْتُ الفَجْرِ</b>) مِن طلوعِه (<b>إِلَى طُلُوعِ الشَّمْسِ</b>). (وَتَعْجِيلُهَا أَفْضَلُ) مطلقاً.', c:'الروض المربع ١/ ٢٠٩'},
+  none:  {name:'لا فريضة في هذا الوقت', color:'#8a8473', q:'اعلم أنَّ الشَّمسَ إذا طَلَعت رُفِع لكلِّ شاخصٍ ظِلٌّ طويلٌ مِن جانِبِ المغربِ، ثم <b>ما دامت الشَّمسُ ترتفعُ فالظلُّ يَنقُصُ</b>، فإذا انتهت الشمسُ إلى وَسَطِ السَّماءِ - وهي حالةُ الاستواءِ - انتهى نُقصانُه.', c:'الروض المربع ١/ ٢٠٧'},
+  zuhr:  {name:'وقت الظهر', color:'#c9962a', q:'(فَوَقْتُ الظُّهْرِ) وهي الأُولى: (<b>مِنَ الزَّوَالِ</b>)، أي: مَيْلِ الشَّمسِ إلى المغربِ، ويستمرُّ (<b>إِلَى مُسَاوَاةِ الشَّيْءِ</b>) الشاخصِ (<b>فَيْئَهُ بَعْدَ فَيءِ الزَّوَالِ</b>)… فإذا زاد أدنى زيادةً فهو الزَّوالُ.', c:'الروض المربع ١/ ٢٠٦–٢٠٧'},
+  asr:   {name:'وقت العصر المختار', color:'#d9822b', q:'(وَيَلِيهِ) … (وَقْتُ العَصْرِ) المختارُ، مِن غيرِ فَصْلٍ بينهما، ويَستمرُّ (<b>إِلَى مَصِيرِ الفَيْءِ مِثْلَيْهِ بَعْدَ فَيءِ الزَّوَالِ</b>)، أي: بعدَ الظلِّ الذي زالت عليه الشَّمسُ.', c:'الروض المربع ١/ ٢٠٧–٢٠٨'},
+  asr2:  {name:'وقت العصر (الضرورة)', color:'#b4532a', q:'(وَ) وقتُ (<b>الضَّرُورَةِ إِلَى غُرُوبِهَا</b>)، أي: غروبِ الشَّمسِ، فالصلاةُ فيه أداءٌ، لكنْ <b>يأثمُ بالتأخيرِ إليه لغيرِ عذرٍ</b>.', c:'الروض المربع ١/ ٢٠٨'},
+  magh:  {name:'وقت المغرب', color:'#c2410c', q:'(وَيَلِيهِ وَقْتُ المَغْرِبِ)، وهي وِتْرُ النهارِ، ويَمتدُّ (<b>إِلَى مَغِيْبِ الحُمْرَةِ</b>)، أي: الشَّفَقِ الأحمرِ.', c:'الروض المربع ١/ ٢٠٨'},
+  isha:  {name:'وقت العشاء المختار', color:'#3b4a8a', q:'(وَتَأْخِيرُهَا إِلَى) أنْ يُصَلِّيَها في آخرِ الوقتِ المختارِ، وهو (<b>ثُلُثُ اللَّيْلِ</b>؛ أَفْضَلُ إِنْ سَهُلَ).', c:'الروض المربع ١/ ٢٠٨'},
+  isha2: {name:'وقت العشاء (الضرورة)', color:'#26305e', q:'(وَيَلِيهِ وَقْتُ العِشَاءِ، <b>إِلَى</b>) طلوعِ (<b>الفَجْرِ الثَّانِي</b>)، وهو الصادِقُ، (وَهُوَ: البَيَاضُ المُعْتَرِضُ) بالمشرقِ… ويحرمُ تأخيرُها بعدَ الثُّلثِ بلا عذرٍ؛ لأنَّه وقت ضرورةٍ.', c:'الروض المربع ١/ ٢٠٨–٢٠٩'},
+};
+
+let S = {t:6.2, day:172, lat:26.43, playing:false};
+
+function decl(n){ return 23.44*Math.sin(2*Math.PI*(284+n)/365); }
+function sunAt(t, lat, dec){
+  const Hh = (t-12)*15*R, p = lat*R, d = dec*R;
+  const E = -Math.cos(d)*Math.sin(Hh);
+  const N = Math.sin(d)*Math.cos(p) - Math.cos(d)*Math.cos(Hh)*Math.sin(p);
+  const U = Math.sin(p)*Math.sin(d) + Math.cos(p)*Math.cos(d)*Math.cos(Hh);
+  return {E,N,U,alt:Math.asin(U)/R};
+}
+function hourFor(alt, lat, dec){ // hour angle (hours) when sun at altitude alt
+  const p=lat*R, d=dec*R;
+  const c = (Math.sin(alt*R) - Math.sin(p)*Math.sin(d))/(Math.cos(p)*Math.cos(d));
+  if (c>1||c<-1) return null;
+  return Math.acos(c)/R/15;
+}
+function times(lat, dec){
+  const s0 = Math.abs(Math.tan((lat-dec)*R));
+  const ha = hourFor(-0.833, lat, dec);
+  const altOf = k => Math.atan(1/k)/R;
+  const T = {
+    s0,
+    noon:12,
+    rise:12-ha, set:12+ha,
+    asr:12+hourFor(altOf(s0+1), lat, dec),
+    asr2:12+hourFor(altOf(s0+2), lat, dec),
+    fajr:12-(hourFor(-18, lat, dec) ?? ha+1.5),
+    shafaq:12+(hourFor(-17, lat, dec) ?? ha+1.4),
+  };
+  const night = (24 - T.set) + T.fajr;
+  T.third = (T.set + night/3) % 24;
+  return T;
+}
+function periodAt(t, T){
+  const third = T.third < T.set ? T.third + 24 : T.third;
+  const tt = t < T.fajr ? t + 24 : t;
+  if (t >= T.fajr &amp;&amp; t < T.rise) return 'fajr';
+  if (t >= T.rise &amp;&amp; t < T.noon) return 'none';
+  if (t >= T.noon &amp;&amp; t < T.asr) return 'zuhr';
+  if (t >= T.asr &amp;&amp; t < T.asr2) return 'asr';
+  if (t >= T.asr2 &amp;&amp; t < T.set) return 'asr2';
+  if (t >= T.set &amp;&amp; t < T.shafaq) return 'magh';
+  if (tt >= T.shafaq &amp;&amp; tt < third) return 'isha';
+  return 'isha2';
+}
+
+// ---------- scene ----------
+const GX = W*0.5, GY = H*0.76, K = 150, TILT = 0.32, POLE = 1; // pole = 1 unit tall
+// east to the right, north away from the viewer
+function P(e,n){ return [GX + e*K, GY - n*K*TILT]; }
+
+function skyColors(alt){
+  if (alt > 10)  return ['#5d9fe0','#bfe0f7'];
+  if (alt > 0)   { const k=alt/10; return [mix('#e98a52','#5d9fe0',k), mix('#f8d39a','#bfe0f7',k)]; }
+  if (alt > -6)  { const k=(alt+6)/6; return [mix('#2b3566','#e98a52',k), mix('#7a4c6e','#f8d39a',k)]; }
+  if (alt > -18) { const k=(alt+18)/12; return [mix('#070b1d','#2b3566',k), mix('#0e1430','#7a4c6e',k)]; }
+  return ['#070b1d','#0e1430'];
+}
+function mix(a,b,k){ k=Math.max(0,Math.min(1,k)); const pa=[1,3,5].map(i=>parseInt(a.substr(i,2),16)), pb=[1,3,5].map(i=>parseInt(b.substr(i,2),16)); return 'rgb('+pa.map((v,i)=>Math.round(v+(pb[i]-v)*k)).join(',')+')'; }
+
+const stars = Array.from({length:90},()=>[Math.random()*W, Math.random()*H*0.6, Math.random()*1.4+0.3]);
+
+function ellipse(r, color, dash){
+  cx.save(); cx.beginPath(); cx.ellipse(GX, GY, r*K, r*K*TILT, 0, 0, 2*Math.PI);
+  cx.strokeStyle=color; cx.lineWidth=2.5; cx.setLineDash(dash); cx.stroke(); cx.restore();
+}
+
+function draw(){
+  const dec = decl(S.day), T = times(S.lat, dec), sun = sunAt(S.t, S.lat, dec);
+  const [c1,c2] = skyColors(sun.alt);
+  let g = cx.createLinearGradient(0,0,0,GY); g.addColorStop(0,c1); g.addColorStop(1,c2);
+  cx.fillStyle=g; cx.fillRect(0,0,W,GY);
+  if (sun.alt < -4){ cx.fillStyle='rgba(255,255,255,'+Math.min(1,(-sun.alt-4)/8)+')'; stars.forEach(s=>{cx.beginPath();cx.arc(s[0],s[1],s[2],0,7);cx.fill();}); }
+
+  // red twilight (shafaq) glow on the west (left) horizon after sunset, dawn whiteness on the east (right)
+  const evening = S.t > 12;
+  if (sun.alt < 0 &amp;&amp; sun.alt > -18){
+    const k = 1 - (-sun.alt)/18;
+    const x = evening ? W*0.08 : W*0.92;
+    const col = evening ? `rgba(214,72,40,${0.75*k})` : `rgba(235,240,255,${0.55*k})`;
+    const rg = cx.createRadialGradient(x, GY, 10, x, GY, W*0.55);
+    rg.addColorStop(0,col); rg.addColorStop(1,'rgba(0,0,0,0)');
+    cx.fillStyle=rg; cx.fillRect(0,0,W,GY);
+  }
+
+  // sun disc
+  if (sun.alt > -3){
+    const sx = GX + sun.E*W*0.46, sy = GY - sun.U*GY*0.92 - sun.N*40;
+    const glow = cx.createRadialGradient(sx,sy,4,sx,sy,70); glow.addColorStop(0,'rgba(255,240,180,.95)'); glow.addColorStop(1,'rgba(255,220,120,0)');
+    cx.fillStyle=glow; cx.beginPath(); cx.arc(sx,sy,70,0,7); cx.fill();
+    cx.fillStyle='#fff2b8'; cx.beginPath(); cx.arc(sx,sy,22,0,7); cx.fill();
+  }
+
+  // ground
+  g = cx.createLinearGradient(0,GY-60,0,H); g.addColorStop(0, sun.alt>0?'#d9c49a':'#3b3a40'); g.addColorStop(1, sun.alt>0?'#bfa271':'#24232a');
+  cx.fillStyle=g; cx.fillRect(0,GY-60,W,H-GY+60);
+  cx.fillStyle='rgba(0,0,0,.12)'; cx.fillRect(0,GY-60,W,2);
+
+  // direction labels
+  cx.fillStyle = sun.alt>0 ? '#5a4a2a' : '#c9c4d6'; cx.font='bold 24px &quot;Segoe UI&quot;,Tahoma';
+  cx.textAlign='right'; cx.fillText('المشرق', W-14, GY-74);
+  cx.textAlign='left';  cx.fillText('المغرب', 14, GY-74);
+
+  // rings
+  const ringCol = sun.alt>0 ? '#6b4f1d' : '#9b93b8';
+  const rings = [[T.s0, ringCol, [4,4], 'فيء الزوال'], [T.s0+1, '#b4532a', [10,6], 'فيء الزوال + مِثْلُه (أول العصر)'], [T.s0+2, '#7b2d12', [2,6], 'فيء الزوال + مِثْلاه (آخر المختار)']];
+  rings.forEach(([r,c,d]) => ellipse(r,c,d));
+  cx.font='bold 24px &quot;Segoe UI&quot;,Tahoma'; cx.textAlign='right';
+  rings.forEach(([,c,d,l],i) => {
+    const y = H - 18 - (2-i)*32;
+    cx.save(); cx.strokeStyle=c; cx.lineWidth=3; cx.setLineDash(d); cx.beginPath(); cx.moveTo(W-20,y-8); cx.lineTo(W-70,y-8); cx.stroke(); cx.restore();
+    cx.fillStyle = sun.alt>0 ? '#3d2c10' : '#e6e1f0'; cx.fillText(l, W-80, y);
+  });
+
+  // shadow
+  if (sun.alt > 0.3){
+    const L = POLE/Math.tan(sun.alt*R);
+    const hz = Math.hypot(sun.E, sun.N) || 1;
+    const se = -sun.E/hz*L, sn = -sun.N/hz*L;
+    const [x0,y0] = P(0,0), [x1,y1] = P(se,sn);
+    cx.strokeStyle='rgba(30,20,10,.55)'; cx.lineWidth=10; cx.lineCap='round';
+    cx.beginPath(); cx.moveTo(x0,y0); cx.lineTo(x1,y1); cx.stroke();
+    $('sLen').textContent = num(L) + ' × الشاخص';
+  } else $('sLen').textContent = '—';
+
+  // pole (الشاخص)
+  const [bx,by] = P(0,0);
+  cx.strokeStyle='#3a2a14'; cx.lineWidth=8; cx.lineCap='round';
+  cx.beginPath(); cx.moveTo(bx,by); cx.lineTo(bx, by - POLE*K); cx.stroke();
+  cx.fillStyle = sun.alt>0 ? '#3a2a14' : '#ddd'; cx.font='bold 24px &quot;Segoe UI&quot;,Tahoma'; cx.textAlign='center';
+  cx.fillText('الشاخص', bx, by - POLE*K - 14);
+
+  // side panel
+  const per = periodAt(S.t, T), info = TXT[per];
+  $('now').style.background = info.color; $('nowName').textContent = info.name;
+  $('quote').innerHTML = '«' + info.q + '»'; $('cite').textContent = info.c + ' — ط ركائز (عبر المكتبة الشاملة)';
+  $('s0').textContent = num(T.s0); $('sAsr').textContent = num(T.s0+1); $('sAsr2').textContent = num(T.s0+2);
+  $('clock').textContent = fmt(S.t);
+  $('t').value = S.t;
+  drawTimeline(T);
+}
+
+function drawTimeline(T){
+  const X = h => 1000 - (h/24)*1000; // RTL: midnight at right
+  const segs = [];
+  const add = (a,b,c) => { if (b < a) { segs.push([a,24,c]); segs.push([0,b,c]); } else segs.push([a,b,c]); };
+  add(0,24,'var(--none)');
+  add(T.fajr,T.rise,'var(--fajr)'); add(T.noon,T.asr,'var(--zuhr)'); add(T.asr,T.asr2,'var(--asr)');
+  add(T.asr2,T.set,'var(--asr2)'); add(T.set,T.shafaq,'var(--magh)'); add(T.shafaq,T.third,'var(--isha)'); add(T.third,T.fajr,'var(--isha2)');
+  let s = segs.map(([a,b,c]) => `<rect x=&quot;${X(b)}&quot; y=&quot;8&quot; width=&quot;${X(a)-X(b)}&quot; height=&quot;22&quot; fill=&quot;${c}&quot;/>`).join('');
+  [[T.fajr,'الفجر'],[T.rise,'الشروق'],[T.noon,'الزوال'],[T.asr,'العصر'],[T.set,'الغروب'],[T.shafaq,'الشفق'],[T.third,'ثلث الليل']].forEach(([h,l],i)=>{
+    s += `<line x1=&quot;${X(h)}&quot; x2=&quot;${X(h)}&quot; y1=&quot;6&quot; y2=&quot;34&quot; stroke=&quot;#1d2b4f&quot; stroke-width=&quot;1&quot;/>`+
+         `<text x=&quot;${X(h)}&quot; y=&quot;${[54,74,92][i%3]}&quot; font-size=&quot;16&quot; text-anchor=&quot;middle&quot; fill=&quot;#4a5677&quot;>${l} ${fmt(h)}</text>`;
+  });
+  s += `<line x1=&quot;${X(S.t)}&quot; x2=&quot;${X(S.t)}&quot; y1=&quot;0&quot; y2=&quot;38&quot; stroke=&quot;#000&quot; stroke-width=&quot;3&quot;/>`;
+  $('timeline').innerHTML = s;
+}
+
+const MONTHS = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+function dayLabel(n){ const d = new Date(2026,0,n); return AR_DIG(d.getDate()) + ' ' + MONTHS[d.getMonth()]; }
+
+// astronomical seasons (northern hemisphere): spring from 21 Mar, summer 21 Jun, autumn 23 Sep, winter 21 Dec
+const SEASONS = {
+  spring:{name:'الربيع', c:'#4fa36b', bg:'#e9f5ec'},
+  summer:{name:'الصيف',  c:'#e8892b', bg:'#fdf1e3'},
+  autumn:{name:'الخريف', c:'#a0673a', bg:'#f6ece3'},
+  winter:{name:'الشتاء', c:'#3b6fb6', bg:'#e8f0fa'},
+};
+const seasonOf = n => n >= 355 || n < 80 ? 'winter' : n < 172 ? 'spring' : n < 266 ? 'summer' : 'autumn';
+function setDay(n){
+  S.day = n; $('day').value = n; $('dayLbl').textContent = dayLabel(n);
+  const k = seasonOf(n), s = SEASONS[k], row = $('dayRow');
+  row.style.setProperty('--bandc', s.c); row.style.setProperty('--bandbg', s.bg);
+  $('seasonChip').textContent = 'أنت الآن في ' + s.name;
+  $('summer').classList.toggle('on', k === 'summer');
+  $('winter').classList.toggle('on', k === 'winter');
+  draw();
+}
+
+$('t').oninput = e => { S.t = +e.target.value; draw(); };
+$('day').oninput = e => setDay(+e.target.value);
+$('city').onchange = e => { S.lat = +e.target.value; draw(); };
+$('summer').onclick = () => setDay(172);
+$('winter').onclick = () => setDay(355);
+$('play').onclick = () => { S.playing = !S.playing; $('play').textContent = S.playing ? '❚❚ إيقاف' : '▶ تشغيل'; };
+let last = 0;
+function loop(ts){ const dt = (ts-last)/1000; last = ts; if (S.playing &amp;&amp; dt < 1){ S.t = (S.t + dt*0.6) % 24; draw(); } requestAnimationFrame(loop); }
+requestAnimationFrame(loop);
+
+// allow ?t=15.5&amp;day=172 for stills
+const qs = new URLSearchParams(location.search);
+if (qs.get('t')) S.t = +qs.get('t'); if (qs.get('day')) S.day = +qs.get('day');
+setDay(S.day);
+</script>
+<script>(function(){function s(){parent.postMessage({h:document.documentElement.scrollHeight},&quot;*&quot;)}new ResizeObserver(s).observe(document.body);s()})()</script></body>
+</html>
+"></iframe></div>
+</section>
+
+<!-- ================= ٢ القلتان ================= -->
+<section class="tab" id="tab-qulla">
+  <div class="grid">
+    <div class="card vis">
+      <div class="vhead">الميزان: القلّتان بأرطال البلدان</div>
+      <svg id="qScale" viewBox="0 0 900 380"></svg>
+      <div class="ctrls">
+        <div class="row"><label>الرطل</label>
+          <div class="seg" id="qRatl">
+            <button class="b" data-r="iraqi">العراقي</button>
+            <button class="b" data-r="masri">المصري</button>
+            <button class="b" data-r="dimashqi">الدمشقي</button>
+            <button class="b" data-r="halabi">الحلبي</button>
+            <button class="b" data-r="qudsi">القدسي</button>
+          </div>
+        </div>
+      </div>
+      <div class="vhead">الحوض: مساحة القلّتين بذراع اليد</div>
+      <canvas id="qTank" width="900" height="470"></canvas>
+      <div class="ctrls">
+        <div class="row"><label>مقدار الماء</label><input type="range" id="qAmt" min="0" max="520" step="0.5" value="300"><span id="qAmtLbl" style="min-width:150px;font-weight:700"></span></div>
+        <div class="row"><label>الحوض</label>
+          <div class="seg" id="qShape"><button class="b" data-s="sq">مربّع</button><button class="b" data-s="cyl">مدوّر</button></div>
+          <button class="b primary" id="qPour">اسكب صاعًا</button><button class="b" id="qEmpty">أفرغ الحوض</button>
+        </div>
+      </div>
+    </div>
+    <aside class="card side">
+      <div class="state" id="qState"><div class="k">حكم الماء بالمقدار</div><div class="v" id="qStateV">—</div></div>
+      <div class="quote">(وَإِنْ بَلَغَ) الماءُ (قُلَّتَيْنِ): تَثْنِية قُلَّةٍ… والمرادُ هنا: <b>الجَرَّةُ الكبيرةُ مِن قِلال هَجَر</b>… (وَهُوَ الكَثِيرُ) اصطلاحاً، (وَهُمَا) أي: القُلَّتان: (<b>خَمسُمِائَةِ رطْلٍ</b>)… (<b>عِرَاقِيٍّ تَقْرِيباً</b>)، فلا يَضرُّ نقصٌ يسيرٌ كرطلٍ ورطلين.</div>
+      <div class="cite">الروض المربع ١/ ٧٤</div>
+      <div class="quote" id="qRatlQuote"></div>
+      <div class="cite">الروض المربع ١/ ٧٤</div>
+      <div class="facts">
+        <div class="fact"><div class="k">بالصاع</div><div class="v" id="qSaa">—</div></div>
+        <div class="fact"><div class="k">الرطل العراقي</div><div class="v">تسعون مثقالًا</div></div>
+      </div>
+      <div class="quote" id="qShapeQuote"></div>
+      <div class="cite" id="qShapeCite"></div>
+      <p class="note">صورة القلّة في الميزان اجتهاد تقريبي في الرسم، فالنصوص حدّدت سعتها لا شكلها. ولم نذكر ما يقابل القلّتين باللتر لاختلاف المعاصرين في تقديره، ويُضاف في الإنتاج منسوبًا إلى قائليه.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= ٣ الدولاب ================= -->
+<section class="tab" id="tab-dulab">
+  <div class="grid">
+    <div class="card vis">
+      <div class="vhead">آلات السقي بمؤنة</div>
+      <canvas id="dCanvas" width="900" height="520"></canvas>
+      <div class="ctrls">
+        <div class="row"><label>الآلة</label>
+          <div class="seg" id="dMode">
+            <button class="b" data-m="dulab">الدولاب تديره البقر</button>
+            <button class="b" data-m="naura">الناعورة يديرها الماء</button>
+            <button class="b" data-m="nadih">الناضح (السانية)</button>
+          </div>
+        </div>
+        <div class="row"><label>السرعة</label><input type="range" id="dSpeed" min="0" max="2" step="0.05" value="1"></div>
+      </div>
+    </div>
+    <aside class="card side">
+      <div class="quote" id="dDesc"></div>
+      <div class="cite" id="dDescCite"></div>
+      <div class="vhead" style="border:1px solid var(--line);border-radius:8px">حاسبة الواجب في الزرع</div>
+      <div class="row"><label style="min-width:auto">نصيب السقي بمؤنة من نفع الزرع</label></div>
+      <div class="row"><span class="note">بلا مؤنة</span><input type="range" id="dShare" min="0" max="100" step="1" value="100"><span class="note">بمؤنة</span></div>
+      <div class="row"><label style="min-width:auto"><input type="checkbox" id="dUnknown"> لا يُعلَم أكثرهما نفعًا</label></div>
+      <div class="state" id="dState"><div class="k" id="dShareLbl"></div><div class="v" id="dRate">—</div></div>
+      <div class="quote" id="dRule"></div>
+      <div class="cite" id="dRuleCite"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= ٤ الافتراش والتورك ================= -->
+<section class="tab" id="tab-pose">
+  <div class="grid">
+    <div class="card vis">
+      <div class="vhead">مجسّم مجرَّد يُدار بالسحب</div>
+      <canvas id="pCanvas" width="900" height="600" style="cursor:grab;touch-action:none"></canvas>
+      <div class="hint">اسحب بالفأرة أو بإصبعك لتدوير المجسّم.</div>
+      <div class="ctrls">
+        <div class="row"><label>الهيئة</label>
+          <div class="seg"><button class="b" id="pIft">الافتراش</button><button class="b" id="pTaw">التورّك</button></div>
+          <input type="range" id="pMorph" min="0" max="1" step="0.01" value="0">
+        </div>
+        <div class="row"><label>موضعها</label>
+          <div class="seg" id="pPlaces">
+            <button class="b" data-p="between">بين السجدتين</button>
+            <button class="b" data-p="tash1">التشهد الأول</button>
+            <button class="b" data-p="tash2">التشهد الأخير في الثلاثية والرباعية</button>
+            <button class="b" data-p="thuna">الثنائية</button>
+          </div>
+        </div>
+        <div class="row"><label>المنظر</label>
+          <div class="seg"><button class="b" data-v="back">من الخلف</button><button class="b" data-v="side">من الجانب</button><button class="b" data-v="top">من الأعلى</button><button class="b" data-v="front">من الأمام</button></div>
+        </div>
+      </div>
+    </div>
+    <aside class="card side">
+      <div class="state"><div class="k">الهيئة الآن</div><div class="v" id="pName">—</div></div>
+      <div class="quote" id="pQuote"></div>
+      <div class="cite" id="pCite"></div>
+      <div class="legend">
+        <span><i style="background:#2f6fd6"></i>الرجل اليسرى</span>
+        <span><i style="background:#e8892b"></i>الرجل اليمنى</span>
+        <span><i style="background:#2f9a5b"></i>اتجاه القبلة</span>
+      </div>
+      <div class="quote" id="pPlaceQuote" style="display:none"></div>
+      <div class="cite" id="pPlaceCite"></div>
+      <p class="note">المجسّم مجرّد بلا ملامح، والمقادير فيه تقريبية للتوضيح. والفرق بين الهيئتين في موضع الرجل اليسرى ومقعدة المصلي: في الافتراش يجلس على رجله اليسرى، وفي التورّك يُخرجها عن يمينه ويجعل أليتيه على الأرض.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= ٥ المواقيت ================= -->
+<section class="tab" id="tab-miqat">
+  <div class="grid">
+    <div class="card vis">
+      <div class="vhead">المواقيت المكانية حول مكة</div>
+      <svg id="mMap"></svg>
+      <div class="ctrls">
+        <div class="row"><label>الميقات</label>
+          <div class="seg" id="mList"></div>
+        </div>
+        <div class="row"><label>المحاذاة</label>
+          <div class="seg" id="mRoutes">
+            <button class="b" data-r="sea">بحرًا من جهة مصر إلى جدة</button>
+            <button class="b" data-r="yemen">بحرًا من جهة اليمن إلى جدة</button>
+            <button class="b" data-r="east">جوًّا من المشرق إلى جدة</button>
+            <button class="b" data-r="none">إخفاء</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="card side">
+      <div class="state" id="mState"><div class="k" id="mFor">—</div><div class="v" id="mName">—</div></div>
+      <div class="facts">
+        <div class="fact"><div class="k">مسافته في الروض</div><div class="v" id="mOld">—</div></div>
+        <div class="fact"><div class="k">المسافة المستقيمة إلى مكة</div><div class="v" id="mKm">—</div></div>
+        <div class="fact" style="grid-column:1/-1"><div class="k">موضعه اليوم (المتعارف عليه)</div><div class="v" id="mNow">—</div></div>
+      </div>
+      <div class="quote" id="mQuote"></div>
+      <div class="cite" id="mCite"></div>
+      <div class="quote" id="mAlign" style="display:none"></div>
+      <div class="cite" id="mAlignCite"></div>
+      <p class="note">الخريطة تخطيطية، والإحداثيات تقريبية للتوضيح. والمسافة المحسوبة خط مستقيم، لا طول الطريق. ومشهد المحاذاة مثال لبيان معنى قوله «حاذى أقربها منه»، والمعتمد في تحديدها ما يقرره أهل العلم.</p>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const R = Math.PI/180;
+const AR = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+const fx = (x,n=0) => AR(x.toFixed(n));
+
+/* ---------------- tabs ---------------- */
+const MODELS = {};
+let current = null;
+function showTab(name){
+  if (!document.getElementById('tab-'+name)) name = 'prayer';
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.id === 'tab-'+name));
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === name));
+  current = name;
+  if (MODELS[name] && MODELS[name].show) MODELS[name].show();
+  try { history.replaceState(null, '', '#'+name); } catch (e) {}
+}
+document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => showTab(b.dataset.tab));
+window.addEventListener('message', e => { if (e.data && e.data.h) $('prayerFrame').style.height = (e.data.h + 4) + 'px'; });
+
+let lastTs = 0;
+function frame(ts){
+  const dt = Math.min(0.05, (ts - lastTs)/1000 || 0); lastTs = ts;
+  if (MODELS[current] && MODELS[current].tick) MODELS[current].tick(dt);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+function setOn(container, attr, val){ container.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset[attr] === val)); }
+
+/* ======================================================================
+   ٢ القلّتان
+   ====================================================================== */
+(function(){
+  // weight of one ratl in iraqi ratls, derived from al-Rawd: "فالرطل العراقي … سُبع القدسي وثمن سبعه…"
+  const RATL = {
+    iraqi:    {name:'العراقي', adj:'عراقيًّا', w:1,       count:'خمسمائة رطل',                                   rel:'(فالرطلُ العراقي تسعون مِثْقالاً)'},
+    masri:    {name:'المصري', adj:'مصريًّا', w:28/25,   count:'أربعمائة وسِتَّةٌ وأربعون رطلاً وثلاثَةُ أسباعِ رطل مِصْري', rel:'والرطل العراقي (نصفُ المصري ورُبُعُه وسُبُعُه)'},
+    dimashqi: {name:'الدمشقي', adj:'دمشقيًّا', w:14/3,    count:'مائةٌ وسَبعةٌ وسُبُع رطلٍ دِمشقي',                 rel:'والرطل العراقي (سُبُع الدِّمشقي ونِصفُ سُبُعِه)'},
+    halabi:   {name:'الحلبي', adj:'حلبيًّا', w:28/5,    count:'تِسعةٌ وثمانون وسُبُعا رطلٍ حَلَبي',                rel:'والرطل العراقي (سُبُع الحلبي ورُبُع سُبُعِه)'},
+    qudsi:    {name:'القدسي', adj:'قدسيًّا', w:56/9,    count:'ثمانون رطلاً وسُبُعان ونصفُ سُبُعِ رطلٍ قُدْسي',     rel:'والرطل العراقي (سُبُع القدسي وثُمُن سُبُعِه)'},
+  };
+  const Q = {ratl:'iraqi', amt:300, shape:'sq', sway:0, swayV:0, shownAmt:300, pourFx:0};
+  const svg = $('qScale');
+
+  function jar(x, y, s){
+    return `<g transform="translate(${x},${y}) scale(${s})" fill="#c98b5a" stroke="#7a4a26" stroke-width="2">
+      <path d="M-14 -96 h28 v10 c0 6 -6 8 -6 14 c22 10 34 34 34 56 c0 24 -14 40 -28 46 h-28 c-14 -6 -28 -22 -28 -46 c0 -22 12 -46 34 -56 c0 -6 -6 -8 -6 -14z"/>
+      <path d="M-18 -60 c-14 -2 -20 10 -14 18" fill="none"/><path d="M18 -60 c14 -2 20 10 14 18" fill="none"/>
+      <path d="M-30 -20 h60" stroke="#e8c49e" fill="none"/></g>`;
+  }
+  function drawScale(){
+    const r = RATL[Q.ratl], n = 500 / r.w;
+    const ang = Q.sway;  // degrees
+    const px = 450, py = 70, L = 300;
+    const ca = Math.cos(ang*R), sa = Math.sin(ang*R);
+    const lx = px - L*ca, ly = py - L*sa, rx = px + L*ca, ry = py + L*sa;
+    // pans hang 150px below beam ends
+    const panY = 230;
+    let s = `<rect x="0" y="0" width="900" height="380" fill="#fcfaf4"/>`;
+    s += `<path d="M${px} ${py} L${px-60} 350 H${px+60} Z" fill="#d9c7a0" stroke="#8a6d3a" stroke-width="3"/>`;
+    s += `<line x1="${lx}" y1="${ly}" x2="${rx}" y2="${ry}" stroke="#6b4f1d" stroke-width="10" stroke-linecap="round"/>`;
+    s += `<circle cx="${px}" cy="${py}" r="12" fill="#b8903a" stroke="#6b4f1d" stroke-width="3"/>`;
+    [[lx,ly],[rx,ry]].forEach(([x,y]) => {
+      s += `<line x1="${x}" y1="${y}" x2="${x-110}" y2="${y+panY-70}" stroke="#8a6d3a" stroke-width="2"/><line x1="${x}" y1="${y}" x2="${x+110}" y2="${y+panY-70}" stroke="#8a6d3a" stroke-width="2"/>`;
+      s += `<path d="M${x-125} ${y+panY-70} H${x+125} Q${x+110} ${y+panY-40} ${x} ${y+panY-40} Q${x-110} ${y+panY-40} ${x-125} ${y+panY-70}Z" fill="#cfa960" stroke="#6b4f1d" stroke-width="3"/>`;
+    });
+    // right pan (reading side): the two qullas
+    s += jar(rx-48, ry+panY-72, 0.9) + jar(rx+48, ry+panY-72, 0.9);
+    s += `<text x="${rx}" y="${ry+panY-5}" text-anchor="middle" font-size="20" font-weight="700" fill="#1d2b4f">القلّتان</text>`;
+    // left pan: n ratls, each block area proportional to its weight; total area fixed
+    const area = 200*95, side = Math.sqrt(area / n), full = Math.floor(n), frac = n - full;
+    const cols = Math.max(1, Math.floor(220 / side)), x0 = lx + 110, yb = ly + panY - 72;
+    let blocks = '';
+    for (let i = 0; i <= full; i++){
+      const w = i === full ? frac : 1; if (w <= 0.001) break;
+      const c = i % cols, rr = Math.floor(i / cols);
+      const bx = x0 - (c+1)*side, by = yb - (rr+1)*side;
+      blocks += `<rect x="${bx + side*(1-w)}" y="${by}" width="${side*w - (side>6?1:0.4)}" height="${side - (side>6?1:0.4)}" fill="${i===full?'#e6b85c':'#8d99b8'}"/>`;
+    }
+    s += blocks;
+    s += `<text x="${lx}" y="${ly+panY-5}" text-anchor="middle" font-size="20" font-weight="700" fill="#1d2b4f">${fx(n, n%1?2:0)} رطلًا ${r.adj}</text>`;
+    s += `<text x="${px}" y="30" text-anchor="middle" font-size="16" fill="#4a5677">كل مربع رطل واحد، ومساحته على قدر وزنه</text>`;
+    svg.innerHTML = s;
+  }
+  function fmtCount(){
+    const r = RATL[Q.ratl];
+    $('qRatlQuote').innerHTML = `القلّتان بالرطل ${r.name}: <b>${r.count}</b>. ${r.rel}.`;
+  }
+
+  // ---------- tank ----------
+  const cv = $('qTank'), cx = cv.getContext('2d');
+  function P(u, v, h, s, ox, oy){ return [ox + (u - v)*Math.cos(30*R)*s, oy + (u + v)*Math.sin(30*R)*s - h*s]; }
+  function poly(pts, fill, stroke){ cx.beginPath(); pts.forEach((p,i)=> i?cx.lineTo(p[0],p[1]):cx.moveTo(p[0],p[1])); cx.closePath(); if(fill){cx.fillStyle=fill;cx.fill();} if(stroke){cx.strokeStyle=stroke;cx.lineWidth=2;cx.stroke();} }
+  function label(t, x, y, col='#1d2b4f', size=19){ cx.font=`bold ${size}px "Segoe UI",Tahoma`; cx.fillStyle=col; cx.textAlign='center'; cx.fillText(t, x, y); }
+
+  function drawTank(){
+    const W = cv.width, H = cv.height;
+    cx.clearRect(0,0,W,H);
+    cx.fillStyle = '#fcfaf4'; cx.fillRect(0,0,W,H);
+    const frac = Math.min(Q.shownAmt/500, 520/500);
+    if (Q.shape === 'sq'){
+      const a = 1.25, d = 1.25, s = 150, ox = 470, oy = 230;
+      const g = (u,v,h) => P(u,v,h,s,ox,oy);
+      // floor shadow
+      poly([g(0,0,0),g(a,0,0),g(a,a,0),g(0,a,0)], 'rgba(0,0,0,.06)');
+      // back walls
+      poly([g(0,0,0),g(a,0,0),g(a,0,d),g(0,0,d)], 'rgba(160,190,215,.25)', '#6f8fae');
+      poly([g(0,0,0),g(0,a,0),g(0,a,d),g(0,0,d)], 'rgba(160,190,215,.18)', '#6f8fae');
+      // water
+      const hw = Math.min(frac, 1)*d;
+      if (hw > 0.002){
+        poly([g(a,0,0),g(a,a,0),g(a,a,hw),g(a,0,hw)], 'rgba(46,120,190,.55)');
+        poly([g(0,a,0),g(a,a,0),g(a,a,hw),g(0,a,hw)], 'rgba(36,100,170,.6)');
+        poly([g(0,0,hw),g(a,0,hw),g(a,a,hw),g(0,a,hw)], 'rgba(120,180,230,.75)', 'rgba(255,255,255,.7)');
+      }
+      // front edges
+      cx.strokeStyle='#38506e'; cx.lineWidth=3;
+      [[g(a,0,0),g(a,a,0)],[g(a,a,0),g(0,a,0)],[g(a,0,0),g(a,0,d)],[g(a,a,0),g(a,a,d)],[g(0,a,0),g(0,a,d)],[g(0,0,d),g(a,0,d)],[g(a,0,d),g(a,a,d)],[g(a,a,d),g(0,a,d)],[g(0,a,d),g(0,0,d)]].forEach(([p,q])=>{cx.beginPath();cx.moveTo(p[0],p[1]);cx.lineTo(q[0],q[1]);cx.stroke();});
+      // dimension labels
+      let p = g(a, a/2, 0); label('ذراع وربع (طولًا)', p[0]+70, p[1]+34);
+      p = g(a/2, a, 0); label('ذراع وربع (عرضًا)', p[0]-70, p[1]+34);
+      p = g(0, a, d/2); label('ذراع وربع (عمقًا)', p[0]-105, p[1]);
+      if (frac > 1.0001){ p = g(a/2, a/2, d); label('فاض الماء عن الحوض', p[0], p[1]-90, '#b4532a'); }
+      drawRuler(60, 440, s);
+    } else {
+      const r = 0.5, h = 2.5, s = 150, ox = 470, oy = 418, k = 0.42;
+      const rx = r*s, ry = r*s*k, top = oy - h*s*0.62;  // squash height a little so it fits
+      const hpx = h*s*0.62;
+      cx.fillStyle='rgba(160,190,215,.2)'; cx.fillRect(ox-rx, top, 2*rx, hpx);
+      const hw = Math.min(frac,1)*hpx;
+      if (hw > 0.5){
+        cx.fillStyle='rgba(46,120,190,.6)'; cx.fillRect(ox-rx, oy-hw, 2*rx, hw);
+        cx.beginPath(); cx.ellipse(ox, oy, rx, ry, 0, 0, Math.PI); cx.fill();
+        cx.fillStyle='rgba(120,180,230,.85)'; cx.beginPath(); cx.ellipse(ox, oy-hw, rx, ry, 0, 0, 2*Math.PI); cx.fill();
+      }
+      cx.strokeStyle='#38506e'; cx.lineWidth=3;
+      cx.beginPath(); cx.ellipse(ox, top, rx, ry, 0, 0, 2*Math.PI); cx.stroke();
+      cx.beginPath(); cx.ellipse(ox, oy, rx, ry, 0, 0, Math.PI); cx.stroke();
+      cx.beginPath(); cx.moveTo(ox-rx, top); cx.lineTo(ox-rx, oy); cx.moveTo(ox+rx, top); cx.lineTo(ox+rx, oy); cx.stroke();
+      label('ذراع (قُطرًا)', ox, top - ry - 14);
+      label('ذراعان ونصف (عمقًا)', ox + rx + 120, top + hpx/2);
+      cx.font='14px "Segoe UI",Tahoma'; cx.fillStyle='#4a5677'; cx.fillText('العمق مصغَّر في الرسم ليتسع له الإطار', ox + rx + 120, top + hpx/2 + 24);
+      if (frac > 1.0001) label('فاض الماء عن الحوض', ox, top - ry - 44, '#b4532a');
+      drawRuler(60, 440, s);
+    }
+    // pour effect
+    if (Q.pourFx > 0){
+      cx.fillStyle = `rgba(46,120,190,${Q.pourFx})`;
+      cx.fillRect(Q.shape==='sq'?460:466, 40, 10, 140);
+      label('صاع', 520, 70, '#2e78be', 16);
+    }
+  }
+  function drawRuler(x, y, s){
+    cx.strokeStyle='#8a6d3a'; cx.lineWidth=6; cx.lineCap='round';
+    cx.beginPath(); cx.moveTo(x, y); cx.lineTo(x + s, y); cx.stroke();
+    cx.lineWidth=2; for (let i=0;i<=4;i++){ cx.beginPath(); cx.moveTo(x + i*s/4, y-8); cx.lineTo(x + i*s/4, y+8); cx.stroke(); }
+    cx.font='bold 15px "Segoe UI",Tahoma'; cx.fillStyle='#6b4f1d'; cx.textAlign='center'; cx.fillText('ذراع اليد', x + s/2, y - 14);
+  }
+  function update(){
+    const a = Q.amt;
+    $('qAmtLbl').textContent = fx(a, a%1?1:0) + ' رطلًا عراقيًّا';
+    $('qSaa').textContent = fx(a/500*93.75, 2) + ' صاعًا';
+    const many = a >= 498;
+    $('qState').style.background = many ? '#2a7a4b' : '#b4532a';
+    $('qStateV').textContent = many ? (a < 500 ? 'كثير: القلّتان تقريبًا، ولا يضر نقص يسير' : 'كثير: بلغ القلّتين') : 'قليل: دون القلّتين';
+    $('qAmt').value = a;
+    const sq = Q.shape === 'sq';
+    $('qShapeQuote').innerHTML = sq
+      ? '«ومساحة القلتين <b>ذراع وربع في ذراع وربع طولًا وعرضًا</b>… بذراع اليد. قال الشيخ: وقدرها بالصاع <b>ثلاثة وتسعون صاعًا، وثلاثة أرباع صاع</b>».'
+      : '«ومساحتهما مربّعًا ذراع وربع طولًا وعرضًا وعمقًا… <b>ومدوّرًا ذراع طولًا وذراعان ونصف ذراع عمقًا</b>».';
+    $('qShapeCite').textContent = sq ? 'حاشية الروض المربع لابن قاسم ١/ ٧١ (وفي التنقيح المشبع للمرداوي ص ٤٠: «مربّعًا… طولًا وعرضًا وعمقًا»)' : 'التنقيح المشبع للمرداوي ص ٤٠ (نقله عن ابن حمدان وحرّره)';
+  }
+
+  $('qRatl').onclick = e => { const b = e.target.closest('button'); if (!b) return; Q.ratl = b.dataset.r; setOn($('qRatl'),'r',Q.ratl); Q.swayV = 7; fmtCount(); };
+  $('qShape').onclick = e => { const b = e.target.closest('button'); if (!b) return; Q.shape = b.dataset.s; setOn($('qShape'),'s',Q.shape); update(); };
+  $('qAmt').oninput = e => { Q.amt = +e.target.value; update(); };
+  $('qPour').onclick = () => { Q.amt = Math.min(520, +(Q.amt + 500/93.75).toFixed(2)); Q.pourFx = 0.9; update(); };
+  $('qEmpty').onclick = () => { Q.amt = 0; update(); };
+
+  MODELS.qulla = {
+    show(){ setOn($('qRatl'),'r',Q.ratl); setOn($('qShape'),'s',Q.shape); fmtCount(); update(); drawScale(); drawTank(); },
+    tick(dt){
+      // damped sway when a new ratl is chosen; ends level since both pans weigh the same
+      Q.swayV += (-Q.sway*30 - Q.swayV*4)*dt; Q.sway += Q.swayV*dt*10;
+      Q.shownAmt += (Q.amt - Q.shownAmt)*Math.min(1, dt*6);
+      Q.pourFx = Math.max(0, Q.pourFx - dt*1.5);
+      drawScale(); drawTank();
+    }
+  };
+})();
+
+/* ======================================================================
+   ٣ الدولاب والناعورة والناضح
+   ====================================================================== */
+(function(){
+  const cv = $('dCanvas'), c = cv.getContext('2d'), W = cv.width, H = cv.height;
+  const D = {mode:'dulab', t:0, speed:1};
+  const DESC = {
+    dulab: {q:'(وَ) يجبُ (نِصْفُهُ)، أي: نصفُ العُشْرِ (مَعَهَا)، أي: مع المؤنةِ؛ <b>كالدُّولابِ تُديرُه البقرُ</b>، والنواضِحِ يُسْتقَى عليها.', c:'الروض المربع ١/ ٥٣١'},
+    naura: {q:'«والدولاب للدوالي، جمعه دواليب، ومثله <b>الناعورة يديرها الماء</b>، وكل آلة يحتاج إليها في ترقية الماء إلى الأرض».', c:'حاشية ابن قاسم ٣/ ٢٢٧، وينظر: المبدع ٢/ ٣٤٠، وشرح الزركشي ٢/ ٤٧٥'},
+    nadih: {q:'«والنواضح جمع ناضح، وهي <b>الإبل والبقر وسائر الحيوانات، يستقى بها الماء من بئر أو نهر</b>… وسميت سواني لأنها يستقي بها الماء من البئر، يقال منه: سنا يسنو، إذا سقى به».', c:'حاشية ابن قاسم ٣/ ٢٢٧'},
+  };
+
+  // ---------- shared scenery ----------
+  function sky(){ const g=c.createLinearGradient(0,0,0,H); g.addColorStop(0,'#bfe0f7'); g.addColorStop(1,'#f3ead2'); c.fillStyle=g; c.fillRect(0,0,W,H); }
+  function ground(y){ c.fillStyle='#d6bf8f'; c.fillRect(0,y,W,H-y); c.fillStyle='rgba(0,0,0,.08)'; c.fillRect(0,y,W,3); }
+  function field(x0, y, w){
+    c.fillStyle='#8fae5a'; c.fillRect(x0, y-6, w, 12);
+    for (let x = x0+8; x < x0+w; x += 16){ c.strokeStyle='#4f7d2b'; c.lineWidth=3; c.beginPath(); c.moveTo(x, y); c.lineTo(x-4, y-26); c.moveTo(x, y); c.lineTo(x+5, y-22); c.moveTo(x,y); c.lineTo(x, y-32); c.stroke(); }
+  }
+  function flow(path, t){ c.save(); c.strokeStyle='#2e78be'; c.lineWidth=7; c.lineCap='round'; c.setLineDash([16,10]); c.lineDashOffset=-t*60; c.beginPath(); path.forEach((p,i)=> i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])); c.stroke(); c.restore(); }
+  function label(t,x,y,size=17,col='#1d2b4f'){ c.font=`bold ${size}px "Segoe UI",Tahoma`; c.fillStyle=col; c.textAlign='center'; c.fillText(t,x,y); }
+  function pot(x,y,ang,full){ c.save(); c.translate(x,y); c.rotate(ang); c.fillStyle='#b5713f'; c.strokeStyle='#6b3e1f'; c.lineWidth=2; c.beginPath(); c.moveTo(-9,-11); c.lineTo(9,-11); c.lineTo(7,9); c.quadraticCurveTo(0,14,-7,9); c.closePath(); c.fill(); c.stroke(); if(full){ c.fillStyle='#2e78be'; c.fillRect(-7,-10,14,4);} c.restore(); }
+
+  // schematic ox (no facial detail); dir = +1 faces right, -1 faces left
+  function ox(x, y, dir, phase, sc=1){
+    c.save(); c.translate(x,y); c.scale(dir*sc, sc);
+    c.strokeStyle='#5a3a22'; c.lineWidth=7; c.lineCap='round';
+    const sw = Math.sin(phase)*8;
+    [[-26,sw],[-14,-sw],[18,-sw],[30,sw]].forEach(([lx,d])=>{ c.beginPath(); c.moveTo(lx,-6); c.lineTo(lx+d,26); c.stroke(); });
+    c.fillStyle='#8a5a3a'; c.beginPath(); c.ellipse(0,-20,44,22,0,0,2*Math.PI); c.fill();
+    c.beginPath(); c.ellipse(52,-26,15,12,-0.3,0,2*Math.PI); c.fill();
+    c.strokeStyle='#e8dcc0'; c.lineWidth=4; c.beginPath(); c.moveTo(50,-36); c.quadraticCurveTo(58,-52,68,-48); c.stroke();
+    c.restore();
+  }
+  // schematic camel
+  function camel(x, y, dir, phase){
+    c.save(); c.translate(x,y); c.scale(dir,1);
+    c.strokeStyle='#8b6b3e'; c.lineWidth=7; c.lineCap='round';
+    const sw = Math.sin(phase)*9;
+    [[-24,sw],[-12,-sw],[16,-sw],[28,sw]].forEach(([lx,d])=>{ c.beginPath(); c.moveTo(lx,-30); c.lineTo(lx+d,22); c.stroke(); });
+    c.fillStyle='#c8a46b'; c.beginPath(); c.ellipse(0,-42,44,20,0,0,2*Math.PI); c.fill();
+    c.beginPath(); c.ellipse(-4,-62,22,16,0,0,2*Math.PI); c.fill();
+    c.strokeStyle='#c8a46b'; c.lineWidth=12; c.beginPath(); c.moveTo(36,-46); c.quadraticCurveTo(58,-60,56,-88); c.stroke();
+    c.fillStyle='#c8a46b'; c.beginPath(); c.ellipse(66,-90,15,8,0,0,2*Math.PI); c.fill();
+    c.restore();
+  }
+
+  // ---------- الدولاب (ساقية) ----------
+  function drawDulab(t){
+    sky(); const gy = 330; ground(gy);
+    // well
+    c.fillStyle='#5b4a35'; c.fillRect(560, gy, 180, H-gy); c.fillStyle='#2b241b'; c.fillRect(575, gy, 150, H-gy);
+    c.fillStyle='#2e78be'; c.fillRect(575, 470, 150, H-470);
+    label('البئر', 650, gy+24, 15, '#f3ead2');
+    // field + channel
+    field(770, gy, 130);
+    c.fillStyle='#8a6d3a'; c.fillRect(712, 196, 50, 16);
+    flow([[752,204],[790,240],[820,gy-8]], t);
+    label('الساقية إلى الزرع', 830, 180, 15);
+
+    const wheelA = t*1.1;           // vertical wheel angle
+    const gearA = t*0.55;           // horizontal gear angle (ox speed)
+    const cxw = 650, cyw = 250, rw = 70;
+    // pot chain: up on the left strand (x=580), over the top, down the right strand (x=720)
+    const yb = 488, Lup = yb - cyw, Larc = Math.PI*rw, total = 2*Lup + 2*Larc;
+    const n = 14, sp = total/n, off = (t*60) % total;
+    function chainPos(s){
+      s = ((s % total) + total) % total;
+      if (s < Lup) return [cxw-rw, yb - s, 0, true];
+      s -= Lup; if (s < Larc){ const a = Math.PI - s/rw; return [cxw + rw*Math.cos(a), cyw - rw*Math.sin(a), (Math.PI/2 - a), a > Math.PI*0.35]; }
+      s -= Larc; if (s < Lup) return [cxw+rw, cyw + s, Math.PI, false];
+      s -= Lup; const a = -s/rw; return [cxw + rw*Math.cos(a), yb - rw*Math.sin(a), Math.PI, false];
+    }
+    // ropes
+    c.strokeStyle='#6b4f1d'; c.lineWidth=2;
+    c.beginPath(); c.moveTo(cxw-rw, cyw); c.lineTo(cxw-rw, yb); c.moveTo(cxw+rw, cyw); c.lineTo(cxw+rw, yb); c.stroke();
+    // vertical wheel
+    c.strokeStyle='#7a5530'; c.lineWidth=8; c.beginPath(); c.arc(cxw, cyw, rw, 0, 2*Math.PI); c.stroke();
+    c.lineWidth=4; for (let i=0;i<6;i++){ const a = wheelA + i*Math.PI/3; c.beginPath(); c.moveTo(cxw,cyw); c.lineTo(cxw+rw*Math.cos(a), cyw+rw*Math.sin(a)); c.stroke(); }
+    for (let i=0;i<n;i++){ const [x,y,ang,full] = chainPos(off + i*sp); if (y < 470 || full) pot(x,y,ang,full); }
+    // pouring water at the top right
+    c.fillStyle='rgba(46,120,190,.8)'; c.fillRect(722, 200 - 4 + Math.sin(t*8)*2, 6, 10);
+    // supports
+    c.strokeStyle='#7a5530'; c.lineWidth=10; c.beginPath(); c.moveTo(560,gy); c.lineTo(cxw,cyw); c.lineTo(740,gy); c.stroke();
+    // axle to the vertical gear
+    c.strokeStyle='#5a3a22'; c.lineWidth=9; c.beginPath(); c.moveTo(cxw,cyw); c.lineTo(430,cyw); c.stroke();
+    // vertical (crown) gear meshing with the horizontal gear
+    c.strokeStyle='#7a5530'; c.lineWidth=6; c.beginPath(); c.arc(430,cyw,40,0,2*Math.PI); c.stroke();
+    for (let i=0;i<10;i++){ const a = wheelA + i*Math.PI/5; c.fillStyle='#5a3a22'; c.beginPath(); c.arc(430+40*Math.cos(a), cyw+40*Math.sin(a), 4, 0, 2*Math.PI); c.fill(); }
+    label('التُّرس القائم', 430, cyw - 52, 14, '#5a3a22');
+
+    // ox path ellipse around the pole of the horizontal gear
+    const pcx = 330, pcy = 362, prx = 195, pry = 50;
+    const oa = gearA, oxX = pcx + prx*Math.cos(oa), oxY = pcy + pry*Math.sin(oa);
+    const behind = Math.sin(oa) < 0;
+    c.strokeStyle='rgba(90,60,30,.25)'; c.lineWidth=14; c.beginPath(); c.ellipse(pcx,pcy,prx,pry,0,0,2*Math.PI); c.stroke();
+    const dir = -Math.sin(oa) > 0 ? 1 : -1; // tangent direction (counter-clockwise on screen)
+    const scale = 0.85 + 0.15*Math.sin(oa);
+    const drawOx = () => { ox(oxX, oxY - 4, dir, t*6, scale); c.strokeStyle='#5a3a22'; c.lineWidth=6; c.beginPath(); c.moveTo(pcx, 236); c.lineTo(oxX, oxY - 40*scale); c.stroke(); };
+    if (behind) drawOx();
+    // horizontal gear on a raised platform
+    c.fillStyle='#b99b67'; c.fillRect(pcx-95, 290, 190, 40);
+    c.strokeStyle='#7a5530'; c.lineWidth=7; c.beginPath(); c.ellipse(pcx, 290, 100, 22, 0, 0, 2*Math.PI); c.stroke();
+    for (let i=0;i<16;i++){ const a = gearA + i*Math.PI/8, py = 290 + 22*Math.sin(a); if (Math.sin(a) > -0.2){ c.fillStyle='#5a3a22'; c.fillRect(pcx + 100*Math.cos(a) - 3, py - 12, 6, 12); } }
+    c.strokeStyle='#5a3a22'; c.lineWidth=12; c.beginPath(); c.moveTo(pcx, 300); c.lineTo(pcx, 228); c.stroke();
+    if (!behind) drawOx();
+    label('الثور يدور حول المحور', pcx, 455, 16);
+    label('التُّرس الأفقي', pcx - 150, 300, 14, '#5a3a22');
+    label('عجلة القواديس', cxw, cyw - rw - 16, 15);
+  }
+
+  // ---------- الناعورة ----------
+  function drawNaura(t){
+    sky(); const gy = 300; ground(gy);
+    // river
+    c.fillStyle='#4f8fca'; c.fillRect(0, 410, W, H-410);
+    c.strokeStyle='rgba(255,255,255,.6)'; c.lineWidth=2;
+    for (let i=0;i<14;i++){ const x = ((i*80 - t*70) % (W+80) + W+80) % (W+80) - 40; c.beginPath(); c.moveTo(x, 440 + (i%3)*25); c.quadraticCurveTo(x+15, 434+(i%3)*25, x+30, 440+(i%3)*25); c.stroke(); }
+    label('النهر يجري', 120, 500, 16, '#fff');
+    c.fillStyle='#d6bf8f'; c.fillRect(0, gy, W, 110);
+    c.fillStyle='#4f8fca'; c.fillRect(270, gy, 360, 110);
+    const cxw = 450, cyw = 290, rw = 170, a0 = t*0.5; // clockwise
+    // aqueduct to the right
+    c.fillStyle='#c7b08a'; c.fillRect(470, 120, 430, 22);
+    for (let x = 560; x < W; x += 90){ c.fillRect(x, 142, 16, gy-142); c.beginPath(); c.arc(x+53, 160, 37, Math.PI, 0); c.fillStyle='#bfe0f7'; c.fill(); c.fillStyle='#c7b08a'; }
+    flow([[480,128],[900,128]], t);
+    field(760, gy, 140);
+    label('القناة إلى الزرع', 700, 108, 15);
+    // wheel
+    c.strokeStyle='#7a5530'; c.lineWidth=10; c.beginPath(); c.arc(cxw, cyw, rw, 0, 2*Math.PI); c.stroke();
+    c.lineWidth=5;
+    for (let i=0;i<12;i++){ const a = a0 + i*Math.PI/6; c.beginPath(); c.moveTo(cxw, cyw); c.lineTo(cxw+rw*Math.cos(a), cyw+rw*Math.sin(a)); c.stroke(); }
+    for (let i=0;i<16;i++){
+      const a = a0 + i*Math.PI/8, x = cxw + rw*Math.cos(a), y = cyw + rw*Math.sin(a);
+      // paddle
+      c.strokeStyle='#5a3a22'; c.lineWidth=6; c.beginPath(); c.moveTo(x, y); c.lineTo(x + 26*Math.cos(a), y + 26*Math.sin(a)); c.stroke();
+      // pot: filled while rising on the left side, emptied after the top
+      const sa = Math.sin(a), ca = Math.cos(a);
+      const full = ca < 0 || (sa < -0.85);
+      pot(cxw + (rw-18)*Math.cos(a), cyw + (rw-18)*Math.sin(a), 0, full && !(ca > -0.15 && sa < 0));
+    }
+    c.fillStyle='#5a3a22'; c.beginPath(); c.arc(cxw, cyw, 16, 0, 2*Math.PI); c.fill();
+    c.fillStyle='rgba(46,120,190,.85)'; c.fillRect(468, 126 + Math.sin(t*9)*2, 8, 14);
+    label('الماء يدفع الألواح فتدور العجلة', 720, 500, 16, '#fff');
+  }
+
+  // ---------- الناضح ----------
+  function drawNadih(t){
+    sky();
+    // sloped ramp: ground from the well (x 520) down to the left
+    const gyW = 330;
+    c.fillStyle='#d6bf8f'; c.beginPath(); c.moveTo(0, 410); c.lineTo(520, gyW); c.lineTo(W, gyW); c.lineTo(W, H); c.lineTo(0, H); c.closePath(); c.fill();
+    c.strokeStyle='rgba(0,0,0,.12)'; c.lineWidth=3; c.beginPath(); c.moveTo(0,410); c.lineTo(520,gyW); c.lineTo(W,gyW); c.stroke();
+    label('المَنْحَدَر (المَجَرّ)', 200, 470, 16);
+    // well
+    c.fillStyle='#5b4a35'; c.fillRect(540, gyW, 120, H-gyW); c.fillStyle='#2b241b'; c.fillRect(552, gyW, 96, H-gyW);
+    c.fillStyle='#2e78be'; c.fillRect(552, 480, 96, H-480);
+    // frame + pulley
+    c.strokeStyle='#7a5530'; c.lineWidth=10; c.beginPath(); c.moveTo(548, gyW); c.lineTo(548, 140); c.moveTo(652, gyW); c.lineTo(652, 140); c.moveTo(540,140); c.lineTo(660,140); c.stroke();
+    c.fillStyle='#5a3a22'; c.beginPath(); c.arc(600, 158, 16, 0, 2*Math.PI); c.fill();
+    // trough and channel
+    c.fillStyle='#8a6d3a'; c.fillRect(662, gyW-20, 70, 20);
+    field(770, gyW, 130);
+    // cycle: walk away (pull up), pause (pour), walk back (lower)
+    const cyc = (t*0.16) % 1;
+    let k, dir, walking = true;
+    if (cyc < 0.45){ k = cyc/0.45; dir = -1; }
+    else if (cyc < 0.55){ k = 1; dir = -1; walking = false; }
+    else { k = 1 - (cyc-0.55)/0.45; dir = 1; }
+    const e = k*k*(3-2*k);
+    const camX = 480 - e*360, camY = gyW + (520-camX)/520*80;
+    const bucketY = 470 - e*290;
+    // rope: bucket -> pulley -> camel
+    c.strokeStyle='#6b4f1d'; c.lineWidth=3; c.beginPath(); c.moveTo(600, bucketY - 18); c.lineTo(600, 158); c.lineTo(586, 152); c.lineTo(camX - dir*30, camY - 22 - 50); c.stroke();
+    // bucket
+    c.save(); const pouring = !walking; c.translate(600, bucketY); if (pouring) c.rotate(0.9);
+    c.fillStyle='#6b4f1d'; c.beginPath(); c.moveTo(-18,-18); c.lineTo(18,-18); c.lineTo(13,16); c.lineTo(-13,16); c.closePath(); c.fill();
+    if (e > 0.02) { c.fillStyle='#2e78be'; c.fillRect(-15,-16,30,6); }
+    c.restore();
+    if (pouring){ flow([[640,180],[690,gyW-20],[740,gyW-12],[800,gyW-6]], t); }
+    else if (cyc > 0.55) flow([[700,gyW-12],[800,gyW-6]], t);
+    camel(camX, camY - 22, dir, walking ? t*7 : 0);
+    label(walking ? (dir < 0 ? 'يمشي البعير مبتعدًا فيرتفع الدلو' : 'يرجع البعير فينزل الدلو') : 'يُفرَغ الدلو في الحوض', 450, 70, 18);
+  }
+
+  function drawRate(){
+    const unknown = $('dUnknown').checked, share = +$('dShare').value;
+    let rate, rule, cite = 'الروض المربع ١/ ٥٣١–٥٣٢';
+    if (unknown){ rate = 'العُشر'; rule = '(وَمَعَ الجَهْلِ) بأكثرِهما نفعاً (<b>العُشْرُ</b>)؛ ليَخرجَ مِنْ عُهْدةِ الواجبِ بيقينٍ.'; }
+    else if (share === 0){ rate = 'العُشر'; rule = '(يَجِبُ عُشْرٌ)… (<b>فِيمَا سُقِيَ بِلَا مَؤُنَةٍ</b>)؛ كالغَيْثِ، والسيوحِ، والبعلِ الشَّاربِ بعروقِه.'; }
+    else if (share === 100){ rate = 'نصف العُشر'; rule = '(وَ) يجبُ (نِصْفُهُ)، أي: نصفُ العُشْرِ (<b>مَعَهَا</b>)، أي: مع المؤنةِ؛ كالدُّولابِ تُديرُه البقرُ، والنواضِحِ يُسْتقَى عليها.'; }
+    else if (share === 50){ rate = 'ثلاثة أرباع العُشر'; rule = '(وَ) يجبُ (ثَلَاثَةُ أَرْبَاعِهِ)… (<b>بِهِمَا</b>)، أي: فيما يَشربُ بلا مُؤنةٍ وبِمؤنةٍ نِصفين.'; }
+    else { rate = share > 50 ? 'نصف العُشر' : 'العُشر'; rule = '(فَإِنْ تَفَاوَتَا)، أي: السقي بمؤنةٍ وبغيرِها؛ (فَـ) الاعتبارُ (<b>بِأَكْثَرِهِمَا نَفْعاً</b>) ونموًّا.'; }
+    const per = {'العُشر':100,'نصف العُشر':50,'ثلاثة أرباع العُشر':75}[rate];
+    $('dShareLbl').textContent = unknown ? 'لا يُعلَم أكثرهما نفعًا' : `بمؤنة ${fx(share)}٪ — بلا مؤنة ${fx(100-share)}٪`;
+    $('dRate').textContent = `الواجب: ${rate} (من كل ١٠٠٠ صاع: ${fx(per)} صاعًا)`;
+    $('dState').style.background = per === 100 ? '#2a7a4b' : per === 50 ? '#b4532a' : '#b8903a';
+    $('dRule').innerHTML = rule; $('dRuleCite').textContent = cite;
+  }
+  function setMode(m){ D.mode = m; setOn($('dMode'),'m',m); $('dDesc').innerHTML = DESC[m].q; $('dDescCite').textContent = DESC[m].c; }
+  $('dMode').onclick = e => { const b = e.target.closest('button'); if (b) setMode(b.dataset.m); };
+  $('dSpeed').oninput = e => D.speed = +e.target.value;
+  $('dShare').oninput = drawRate; $('dUnknown').onchange = drawRate;
+
+  MODELS.dulab = {
+    show(){ setMode(D.mode); drawRate(); this.tick(0); },
+    tick(dt){ D.t += dt*D.speed; ({dulab:drawDulab, naura:drawNaura, nadih:drawNadih})[D.mode](D.t); }
+  };
+  const qs = new URLSearchParams(location.search); if (qs.get('dm')) D.mode = qs.get('dm'); if (qs.get('dt')) D.t = +qs.get('dt');
+})();
+
+/* ======================================================================
+   ٤ الافتراش والتورك
+   ====================================================================== */
+(function(){
+  const cv = $('pCanvas'), c = cv.getContext('2d'), W = cv.width, H = cv.height;
+  // joints: x = to the worshipper's right, y = up, z = forward (toward the qibla); unit ≈ body height
+  const IFT = {
+    hipL:[-0.11,0.30,0], hipR:[0.11,0.30,0], kneeL:[-0.16,0.06,0.44], ankleL:[-0.10,0.07,-0.04], toeL:[-0.05,0.03,-0.20],
+    kneeR:[0.17,0.06,0.44], ankleR:[0.19,0.17,-0.03], toeR:[0.19,0.02,0.11],
+    chest:[0,0.80,0.03], neck:[0,0.93,0.03], head:[0,1.06,0.04],
+    shL:[-0.19,0.88,0.03], elL:[-0.22,0.58,0.12], haL:[-0.16,0.36,0.33], shR:[0.19,0.88,0.03], elR:[0.22,0.58,0.12], haR:[0.16,0.36,0.33],
+  };
+  const TAW = {
+    hipL:[-0.11,0.12,0], hipR:[0.11,0.12,0], kneeL:[-0.13,0.05,0.42], ankleL:[0.24,0.05,0.12], toeL:[0.42,0.03,0.06],
+    kneeR:[0.20,0.06,0.44], ankleR:[0.30,0.17,-0.04], toeR:[0.30,0.02,0.09],
+    chest:[0,0.62,0.03], neck:[0,0.75,0.03], head:[0,0.88,0.04],
+    shL:[-0.19,0.70,0.03], elL:[-0.22,0.41,0.12], haL:[-0.15,0.18,0.30], shR:[0.19,0.70,0.03], elR:[0.23,0.41,0.13], haR:[0.17,0.19,0.32],
+  };
+  const BODY = '#8a94ad', LEFT = '#2f6fd6', RIGHT = '#e8892b';
+  const SEG = [
+    ['hipL','hipR',0.08,BODY], ['pelvis','chest',0.12,BODY], ['chest','neck',0.05,BODY], ['shL','shR',0.06,BODY],
+    ['shL','elL',0.045,BODY], ['elL','haL',0.04,BODY], ['shR','elR',0.045,BODY], ['elR','haR',0.04,BODY],
+    ['hipL','kneeL',0.07,LEFT], ['kneeL','ankleL',0.055,LEFT], ['ankleL','toeL',0.04,LEFT],
+    ['hipR','kneeR',0.07,RIGHT], ['kneeR','ankleR',0.055,RIGHT], ['ankleR','toeR',0.04,RIGHT],
+  ];
+  const P = {m:0, target:0, yaw:-50, pitch:28, tYaw:-50, tPitch:28, drag:null};
+  const VIEWS = {back:[-50,28], side:[-90,12], top:[-30,72], front:[150,20]};
+  const PLACES = {
+    between:{pose:0, q:'(ثُمَّ يَرْفَعُ رَأْسَهُ) إذا فَرَغ مِن السَّجدةِ (مُكَبِّراً، وَيَجْلِسُ <b>مُفْتَرِشاً</b> يُسْرَاهُ)…', c:'الروض المربع ١/ ٢٥٥'},
+    tash1:  {pose:0, q:'(ثُمَّ) بعدَ فراغِه مِن الرَّكعةِ الثَّانيةِ (يَجْلِسُ <b>مُفْتَرِشاً</b>)؛ كجلوسِه بين السجدتين، (وَيَدَاهُ عَلَى فَخِذَيْهِ).', c:'الروض المربع ١/ ٢٥٦'},
+    tash2:  {pose:1, q:'(ثُمَّ يَجْلِسُ فِي تَشَهُّدِهِ الأَخِيرِ <b>مُتَوَرِّكاً</b>)… وهذا في الثلاثية والرباعية، كما هو سياق كلامه: (وإِنْ كَانَ) المصلِّي (فِي ثُلَاثِيَّةٍ) كمغربٍ، (أَوْ رُبَاعِيَّةٍ) كظهرٍ…', c:'الروض المربع ١/ ٢٦٠'},
+    thuna:  {pose:0, q:'وفي سجود السهو بعد السلام: «جَلَس بعدَه <b>مُفترشاً في ثنائيةٍ، ومتوركاً في غيرِها</b>».', c:'الروض المربع ١/ ٣٠١'},
+  };
+  const POSEQ = [
+    {name:'الافتراش', q:'(وَيَجْلِسُ مُفْتَرِشاً يُسْرَاهُ)، أي: يُسرى رجلَيه، (نَاصِباً يُمْنَاهُ)، <b>ويُخرجُها مِنْ تحتِه، ويَثني أصابِعَها نحوَ القبلةِ</b>، ويَبسِطُ يديه على فخذيه مضمومتي الأصابعِ.', c:'الروض المربع ١/ ٢٥٥'},
+    {name:'التورّك', q:'(مُتَوَرِّكاً)، يَفْرُش رِجلَه اليسرى، وينصِبُ اليمنى <b>ويُخرِجُها عن يمينِهِ، ويَجعلُ أَلْيَتَيْهِ على الأرضِ</b>، ثم يَتشهَّدُ ويُسلِّمُ.', c:'الروض المربع ١/ ٢٦٠ — وفي حاشيته عن المطلع: «متوركًا: متفعل من الورك… والورك ما فوق الفخذ»'},
+  ];
+
+  const ease = k => k*k*(3-2*k);
+  function joints(m){
+    const e = ease(m), J = {};
+    for (const k in IFT) J[k] = IFT[k].map((v,i) => v + (TAW[k][i]-v)*e);
+    J.pelvis = [0, (J.hipL[1]+J.hipR[1])/2 + 0.04, 0];
+    return J;
+  }
+  function project(p){
+    const a = P.yaw*R, b = P.pitch*R;
+    const X = p[0]*Math.cos(a) + p[2]*Math.sin(a);
+    const Z = -p[0]*Math.sin(a) + p[2]*Math.cos(a);
+    const Y = p[1]*Math.cos(b) + Z*Math.sin(b);
+    const Dp = Z*Math.cos(b) - p[1]*Math.sin(b);
+    const s = 360;
+    return [W/2 + X*s, H*0.80 - Y*s, Dp];
+  }
+  function draw(){
+    c.clearRect(0,0,W,H);
+    const g = c.createLinearGradient(0,0,0,H); g.addColorStop(0,'#f7f3ea'); g.addColorStop(1,'#e9e1cf'); c.fillStyle=g; c.fillRect(0,0,W,H);
+    // prayer rug
+    const rug = [[-0.42,0,-0.38],[0.48,0,-0.38],[0.48,0,0.9],[-0.42,0,0.9]].map(project);
+    c.fillStyle='#b9473f'; c.beginPath(); rug.forEach((p,i)=> i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])); c.closePath(); c.fill();
+    const rug2 = [[-0.36,0,-0.32],[0.42,0,-0.32],[0.42,0,0.84],[-0.36,0,0.84]].map(project);
+    c.strokeStyle='#e9c46a'; c.lineWidth=3; c.beginPath(); rug2.forEach((p,i)=> i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])); c.closePath(); c.stroke();
+    // qibla arrow
+    const q0 = project([0.03,0,0.95]), q1 = project([0.03,0,1.25]);
+    c.strokeStyle='#2f9a5b'; c.lineWidth=6; c.beginPath(); c.moveTo(q0[0],q0[1]); c.lineTo(q1[0],q1[1]); c.stroke();
+    const ang = Math.atan2(q1[1]-q0[1], q1[0]-q0[0]);
+    c.fillStyle='#2f9a5b'; c.beginPath(); c.moveTo(q1[0]+14*Math.cos(ang), q1[1]+14*Math.sin(ang)); c.lineTo(q1[0]+14*Math.cos(ang+2.4), q1[1]+14*Math.sin(ang+2.4)); c.lineTo(q1[0]+14*Math.cos(ang-2.4), q1[1]+14*Math.sin(ang-2.4)); c.fill();
+    c.font='bold 18px "Segoe UI",Tahoma'; c.textAlign='center'; c.fillText('القبلة', q1[0]+30*Math.cos(ang), q1[1]+30*Math.sin(ang)+6);
+
+    const J = joints(P.m);
+    const PJ = {}; for (const k in J) PJ[k] = project(J[k]);
+    const items = SEG.map(([a,b,r,col]) => ({d:(PJ[a][2]+PJ[b][2])/2, f:() => {
+      c.strokeStyle = col; c.lineWidth = r*360*1.5; c.lineCap='round';
+      c.beginPath(); c.moveTo(PJ[a][0],PJ[a][1]); c.lineTo(PJ[b][0],PJ[b][1]); c.stroke();
+    }}));
+    items.push({d:PJ.head[2], f:() => { c.fillStyle='#9aa3ba'; c.beginPath(); c.arc(PJ.head[0], PJ.head[1], 0.085*360, 0, 2*Math.PI); c.fill(); }});
+    items.sort((u,v) => v.d - u.d).forEach(it => it.f());
+    // toes of the right foot point to the qibla: small green marker
+    c.fillStyle='#2f9a5b'; c.beginPath(); c.arc(PJ.toeR[0], PJ.toeR[1], 7, 0, 2*Math.PI); c.fill();
+    // labels
+    c.font='bold 16px "Segoe UI",Tahoma';
+    c.fillStyle=LEFT;  c.fillText('اليسرى', PJ.toeL[0], PJ.toeL[1]+30);
+    c.fillStyle=RIGHT; c.fillText('اليمنى', PJ.toeR[0], PJ.toeR[1]-18);
+    const name = P.m < 0.5 ? POSEQ[0] : POSEQ[1];
+    $('pName').textContent = P.m < 0.02 ? 'الافتراش' : P.m > 0.98 ? 'التورّك' : 'انتقال من الافتراش إلى التورّك';
+    if ($('pQuote').dataset.n !== name.name){ $('pQuote').dataset.n = name.name; $('pQuote').innerHTML = name.q; $('pCite').textContent = name.c; }
+    $('pIft').classList.toggle('on', P.m < 0.5); $('pTaw').classList.toggle('on', P.m >= 0.5);
+    $('pMorph').value = P.m;
+  }
+  $('pIft').onclick = () => P.target = 0;
+  $('pTaw').onclick = () => P.target = 1;
+  $('pMorph').oninput = e => { P.m = P.target = +e.target.value; };
+  $('pPlaces').onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const pl = PLACES[b.dataset.p]; P.target = pl.pose; setOn($('pPlaces'),'p',b.dataset.p);
+    $('pPlaceQuote').style.display = ''; $('pPlaceQuote').innerHTML = pl.q; $('pPlaceCite').textContent = pl.c;
+  };
+  document.querySelectorAll('#tab-pose [data-v]').forEach(b => b.onclick = () => { [P.tYaw, P.tPitch] = VIEWS[b.dataset.v]; });
+  cv.addEventListener('pointerdown', e => { P.drag = [e.clientX, e.clientY, P.yaw, P.pitch]; cv.setPointerCapture(e.pointerId); cv.style.cursor='grabbing'; });
+  cv.addEventListener('pointermove', e => { if (!P.drag) return; P.yaw = P.tYaw = P.drag[2] - (e.clientX - P.drag[0])*0.5; P.pitch = P.tPitch = Math.max(-5, Math.min(85, P.drag[3] + (e.clientY - P.drag[1])*0.4)); });
+  cv.addEventListener('pointerup', () => { P.drag = null; cv.style.cursor='grab'; });
+
+  MODELS.pose = {
+    show(){ draw(); },
+    tick(dt){
+      P.m += (P.target - P.m)*Math.min(1, dt*3);
+      if (Math.abs(P.target - P.m) < 0.002) P.m = P.target;
+      P.yaw += (P.tYaw - P.yaw)*Math.min(1, dt*5); P.pitch += (P.tPitch - P.pitch)*Math.min(1, dt*5);
+      draw();
+    }
+  };
+  const qs = new URLSearchParams(location.search);
+  if (qs.get('pm')) P.m = P.target = +qs.get('pm');
+  if (qs.get('pv')) [P.yaw, P.pitch] = [P.tYaw, P.tPitch] = VIEWS[qs.get('pv')];
+})();
+
+/* ======================================================================
+   ٥ المواقيت
+   ====================================================================== */
+(function(){
+  const LON0 = 37.0, LON1 = 42.0, LAT0 = 25.0, LAT1 = 19.8, K = 112, CL = Math.cos(22.5*R);
+  const X = lon => (lon - LON0)*K*CL, Y = lat => (LAT0 - lat)*K;
+  const W = X(LON1), H = Y(LAT1);
+  const svg = $('mMap'); svg.setAttribute('viewBox', `0 0 ${W.toFixed(0)} ${H.toFixed(0)}`);
+  svg.style.direction = 'ltr';  // so text-anchor start/end mean left/right edges
+  const MAKKAH = [21.4225, 39.8262];
+  // approximate coordinates of the commonly identified modern sites
+  const MIQ = [
+    {id:'hul', name:'ذو الحُلَيْفة', ll:[24.413,39.543], forr:'لأهل المدينة', old:'عشرة أيام', now:'أبيار علي، قرب المدينة النبوية', col:'#2f6fd6',
+     q:'(وَمِيقَاتُ أَهْلِ المَدِينَةِ: ذُو الحُلَيْفَةِ)، بضمِّ الحاءِ وفتحِ اللامِ، <b>بينها وبين المدينةِ ستةُ أميالٍ أو سبعةٌ، وهي أبعدُ المواقيتِ مِن مكةَ، بينها وبين مكةَ عشرةُ أيامٍ</b>.', c:'الروض المربع ٢/ ٧٠'},
+    {id:'juh', name:'الجُحْفة', ll:[22.704,39.145], forr:'لأهل الشام ومصر والمغرب', old:'نحو ثلاث مراحل', now:'قرب رابغ (ويُحرم الناس اليوم من رابغ)', col:'#b4532a',
+     q:'(وَ) ميقاتُ (أَهْلِ الشَّامِ، وَمِصْرَ، وَالمَغْرِبِ: الجُحْفَةُ)، بضمِّ الجيمِ وسكونِ الحاءِ المهملةِ، <b>قُرْبَ رابِغٍ، بينها وبين مكةَ نحوُ ثلاثِ مراحلَ</b>.', c:'الروض المربع ٢/ ٧٠'},
+    {id:'yal', name:'يَلَمْلَم', ll:[20.53,39.87], forr:'لأهل اليمن', old:'ليلتان', now:'السعدية، جنوب مكة', col:'#2a8c86',
+     q:'(وَ) ميقاتُ (أَهْلِ اليَمَنِ: يَلَمْلَمُ)، <b>بينه وبين مكةَ ليلتان</b>. وفي الحاشية عن المطلع: «جبل من جبال تهامة… ويقال: ألملم».', c:'الروض المربع ٢/ ٧٠ وحاشيته'},
+    {id:'qar', name:'قَرْن', ll:[21.63,40.42], forr:'لأهل نجد والطائف', old:'يوم وليلة', now:'السيل الكبير، قرب الطائف', col:'#8a4fb4',
+     q:'(وَ) ميقاتُ (أَهْلِ نَجْدٍ) والطائفِ: (قَرْنٌ)، بسكونِ الراءِ، ويقالُ: قرنُ المنازلِ، وقرنُ الثعالبِ، <b>على يومٍ وليلةٍ مِن مكةَ</b>.', c:'الروض المربع ٢/ ٧٠'},
+    {id:'irq', name:'ذات عِرْق', ll:[21.93,40.45], forr:'لأهل المشرق: العراق وخراسان ونحوهما', old:'نحو مرحلتين', now:'الضريبة، شمال شرق مكة', col:'#b8903a',
+     q:'(وَ) ميقاتُ (أَهْلِ المَشْرِقِ)… (ذَاتُ عِرْقٍ)، منزِلٌ معروفٌ، يُسمَّى بذلك؛ لأنَّ فيه عِرْقاً، وهو الجبلُ الصغيرُ، <b>وبينه وبين مكةَ نحوُ مرحلتين</b>.', c:'الروض المربع ٢/ ٧١'},
+  ];
+  // [name, latlon, major, label side: 'r' right, 'l' left, 'b' below]
+  const CITIES = [['مكة المكرمة',MAKKAH,1,'b'],['المدينة النبوية',[24.4672,39.6111],1,'r'],['جدة',[21.54,39.17],0,'l'],['رابغ',[22.80,39.03],0,'l'],['الطائف',[21.27,40.42],0,'r']];
+  const MSIDE = {hul:'l', juh:'r', yal:'r', qar:'r', irq:'r'};
+  const COAST = [[25.5,36.95],[25.02,37.27],[24.6,37.55],[24.09,38.06],[23.7,38.55],[23.1,38.85],[22.8,39.03],[22.3,39.08],[21.95,39.05],[21.49,39.17],[21.1,39.35],[20.7,39.55],[20.35,39.85],[20.0,40.2],[19.6,40.6],[19.2,41.0]];
+  const ROUTES = {
+    sea:  {name:'بحرًا من جهة مصر إلى جدة', pts:[[25.0,37.05],[23.4,37.9],[21.52,39.08]]},
+    yemen:{name:'بحرًا من جهة اليمن إلى جدة', pts:[[19.8,40.0],[20.4,39.55],[21.47,39.10]]},
+    east: {name:'جوًّا من المشرق إلى جدة', pts:[[23.4,42.0],[22.3,40.9],[21.68,39.16]]},
+  };
+  const M = {sel:'hul', route:'none', t:0};
+
+  // planar km coordinates for the alignment geometry
+  const KM = ll => [(ll[1]-39)*111.32*CL, (ll[0]-22)*110.57];
+  const LL = p => [p[1]/110.57 + 22, p[0]/(111.32*CL) + 39];
+  function hav(a,b){ const dl=(b[0]-a[0])*R, dn=(b[1]-a[1])*R; const h=Math.sin(dl/2)**2+Math.cos(a[0]*R)*Math.cos(b[0]*R)*Math.sin(dn/2)**2; return 2*6371*Math.asin(Math.sqrt(h)); }
+  function nearestOnRoute(pts, m){
+    const P0 = KM(m); let best = null;
+    for (let i=0;i<pts.length-1;i++){
+      const A = KM(pts[i]), B = KM(pts[i+1]), AB = [B[0]-A[0],B[1]-A[1]];
+      const L2 = AB[0]**2+AB[1]**2; let u = ((P0[0]-A[0])*AB[0]+(P0[1]-A[1])*AB[1])/L2; u = Math.max(0,Math.min(1,u));
+      const F = [A[0]+AB[0]*u, A[1]+AB[1]*u], d = Math.hypot(F[0]-P0[0],F[1]-P0[1]);
+      if (!best || d < best.d) best = {d, F, seg:i, u};
+    }
+    return best;
+  }
+  function routeLen(pts){ let s=0; for(let i=0;i<pts.length-1;i++){ const a=KM(pts[i]), b=KM(pts[i+1]); s+=Math.hypot(b[0]-a[0],b[1]-a[1]); } return s; }
+  function pointAt(pts, s){ for(let i=0;i<pts.length-1;i++){ const a=KM(pts[i]), b=KM(pts[i+1]), l=Math.hypot(b[0]-a[0],b[1]-a[1]); if (s<=l){ const k=s/l; return LL([a[0]+(b[0]-a[0])*k, a[1]+(b[1]-a[1])*k]); } s-=l; } return pts[pts.length-1]; }
+  function distAlong(pts, seg, u){ let s=0; for(let i=0;i<seg;i++){ const a=KM(pts[i]), b=KM(pts[i+1]); s+=Math.hypot(b[0]-a[0],b[1]-a[1]); } const a=KM(pts[seg]), b=KM(pts[seg+1]); return s + Math.hypot(b[0]-a[0],b[1]-a[1])*u; }
+
+  const xy = ll => [X(ll[1]), Y(ll[0])];
+  function draw(){
+    let s = `<rect width="${W}" height="${H}" fill="#efe4c8"/>`;
+    // sea
+    const sea = COAST.map(xy); sea.push([0, H], [0, 0]);
+    s += `<path d="M${sea.map(p=>p.map(v=>v.toFixed(1)).join(' ')).join(' L')} Z" fill="#cfe3f0"/>`;
+    s += `<text x="${X(37.7)}" y="${Y(21.3)}" font-size="20" fill="#5b88ad" text-anchor="middle" transform="rotate(-55 ${X(37.7)} ${Y(21.3)})">البحر الأحمر</text>`;
+    // graticule
+    for (let la = 20; la <= 25; la++) s += `<line x1="0" x2="${W}" y1="${Y(la)}" y2="${Y(la)}" stroke="rgba(0,0,0,.06)"/>`;
+    for (let lo = 37; lo <= 42; lo++) s += `<line y1="0" y2="${H}" x1="${X(lo)}" x2="${X(lo)}" stroke="rgba(0,0,0,.06)"/>`;
+    const mk = xy(MAKKAH);
+    // lines miqat -> Makkah
+    MIQ.forEach(m => { const p = xy(m.ll); s += `<line x1="${p[0]}" y1="${p[1]}" x2="${mk[0]}" y2="${mk[1]}" stroke="${m.col}" stroke-width="${m.id===M.sel?3:1.5}" stroke-dasharray="6 5" opacity="${m.id===M.sel?1:.45}"/>`; });
+    // route + alignment
+    if (M.route !== 'none'){
+      const r = ROUTES[M.route], pts = r.pts.map(xy);
+      s += `<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#1d2b4f" stroke-width="3" stroke-dasharray="10 6"/>`;
+      let best = null, bm = null;
+      MIQ.forEach(m => { const n = nearestOnRoute(r.pts, m.ll); if (!best || n.d < best.d){ best = n; bm = m; } });
+      const F = xy(LL(best.F)), mp = xy(bm.ll);
+      s += `<line x1="${mp[0]}" y1="${mp[1]}" x2="${F[0]}" y2="${F[1]}" stroke="${bm.col}" stroke-width="3"/>`;
+      const total = routeLen(r.pts), sF = distAlong(r.pts, best.seg, best.u);
+      const pos = (M.t*60) % (total + 120), cur = pointAt(r.pts, Math.min(pos, total)), cp = xy(cur);
+      const passed = pos >= sF;
+      s += `<circle cx="${F[0]}" cy="${F[1]}" r="9" fill="${passed?bm.col:'#fff'}" stroke="${bm.col}" stroke-width="3"/>`;
+      s += `<text x="${F[0]-14}" y="${F[1]-14}" font-size="15" font-weight="700" fill="${bm.col}" text-anchor="end">موضع المحاذاة</text>`;
+      s += `<g transform="translate(${cp[0]},${cp[1]})"><circle r="11" fill="#1d2b4f"/><text y="5" font-size="13" fill="#fff" text-anchor="middle">${M.route==='east'?'✈':'⛵'}</text></g>`;
+      const a = $('mAlign'); a.style.display = '';
+      a.innerHTML = `${r.name}: أقرب المواقيت إلى طريقه <b>${bm.name}</b>، فإذا بلغ الموضع المعلَّم ${passed ? 'فقد <b>حاذاه، فيُحرم</b>' : 'حاذاه فيُحرم'}. «ومَنْ لمْ يَمُرَّ بميقاتٍ <b>أَحْرَم إذا عَلِمَ أنَّه حَاذَى أَقْرَبَها مِنه</b>».`;
+      $('mAlignCite').textContent = 'الروض المربع ٢/ ٧١';
+    } else { $('mAlign').style.display = 'none'; $('mAlignCite').textContent = ''; }
+    // cities
+    const lbl = (p, side, gap) => side === 'b' ? [p[0], p[1] + gap + 14, 'middle'] : side === 'r' ? [p[0] + gap, p[1] + 6, 'start'] : [p[0] - gap, p[1] + 6, 'end'];
+    CITIES.forEach(([n, ll, big, side]) => { const p = xy(ll), [tx, ty, an] = lbl(p, side, big ? 14 : 8);
+      s += `<circle cx="${p[0]}" cy="${p[1]}" r="${big?9:4}" fill="${big?'#1d2b4f':'#7a7466'}"/>`
+         + `<text x="${tx}" y="${ty}" font-size="${big?17:14}" font-weight="${big?700:400}" fill="${big?'#1d2b4f':'#7a7466'}" text-anchor="${an}" stroke="#efe4c8" stroke-width="4" paint-order="stroke">${n}</text>`; });
+    // miqats
+    MIQ.forEach(m => { const p = xy(m.ll), on = m.id === M.sel, [tx, ty, an] = lbl(p, MSIDE[m.id], 18);
+      s += `<g data-m="${m.id}" style="cursor:pointer"><circle cx="${p[0]}" cy="${p[1]}" r="${on?14:10}" fill="${m.col}" stroke="#fff" stroke-width="3"/>`
+         + `<text x="${tx}" y="${ty}" font-size="${on?20:17}" font-weight="700" fill="${m.col}" text-anchor="${an}" stroke="#efe4c8" stroke-width="4" paint-order="stroke">${m.name}</text></g>`; });
+    svg.innerHTML = s;
+  }
+  function select(id){
+    M.sel = id; const m = MIQ.find(x => x.id === id);
+    setOn($('mList'),'m',id);
+    $('mFor').textContent = m.forr; $('mName').textContent = m.name; $('mState').style.background = m.col;
+    $('mOld').textContent = m.old; $('mKm').textContent = '≈ ' + fx(Math.round(hav(m.ll, MAKKAH)/5)*5) + ' كم';
+    $('mNow').textContent = m.now;
+    $('mQuote').innerHTML = m.q; $('mCite').textContent = m.c;
+    draw();
+  }
+  $('mList').innerHTML = MIQ.map(m => `<button class="b" data-m="${m.id}">${m.name}</button>`).join('');
+  $('mList').onclick = e => { const b = e.target.closest('button'); if (b) select(b.dataset.m); };
+  svg.onclick = e => { const g = e.target.closest('[data-m]'); if (g) select(g.dataset.m); };
+  $('mRoutes').onclick = e => { const b = e.target.closest('button'); if (!b) return; M.route = b.dataset.r; M.t = 0; setOn($('mRoutes'),'r',M.route); draw(); };
+
+  MODELS.miqat = {
+    show(){ select(M.sel); setOn($('mRoutes'),'r',M.route); },
+    tick(dt){ if (M.route !== 'none'){ M.t += dt; draw(); } }
+  };
+  const qs = new URLSearchParams(location.search);
+  if (qs.get('mr')) { M.route = qs.get('mr'); M.t = +(qs.get('mt') || 0); }
+  if (qs.get('ms')) M.sel = qs.get('ms');
+})();
+
+showTab(location.hash.slice(1) || 'prayer');
+</script>
+</div>
+</body></html>
